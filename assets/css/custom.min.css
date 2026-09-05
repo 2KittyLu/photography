@@ -33,3 +33,21 @@ gap:12px
 font-size:.68em
 }
 }
+/* Photo watermark */
+#main .thumb {
+  position: relative;
+}
+
+#main .thumb::before {
+  content: "© KITTY LU PHOTOGRAPHY";
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 10;
+  color: rgba(255,255,255,0.72);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.65);
+  pointer-events: none;
+}

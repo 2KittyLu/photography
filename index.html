@@ -27,15 +27,17 @@ layout: default
         {% if image.path contains 'fulls' %}
       {% assign category = '' %}
 
-{% if image.name contains 'Stories' %}
+{% assign filename = image.name | downcase %}
+
+{% if filename contains 'stories' %}
     {% assign category = 'stories' %}
-{% elsif image.name contains 'The Moment' %}
+{% elsif filename contains 'the moment' %}
     {% assign category = 'moment' %}
-{% elsif image.name contains 'Wildlife & Animals' %}
+{% elsif filename contains 'wildlife' %}
     {% assign category = 'animals' %}
-{% elsif image.name contains 'Nature' %}
+{% elsif filename contains 'nature' %}
     {% assign category = 'nature' %}
-{% elsif image.name contains 'Food' %}
+{% elsif filename contains 'food' %}
     {% assign category = 'food' %}
 {% endif %}
 

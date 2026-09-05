@@ -1,25 +1,30 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-    {% include header.html %}
-</head>
-<body class="is-preload">
+	<head>
+		{% include head.html %}
+	</head>
 
-    {{ content }}
-    
-    {% include footer.html %}
-</body>
-    <script>
-  document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  });
+	<body>
 
-  document.addEventListener('dragstart', function(e) {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  });
-</script>
+		{{ content }}
+
+		{% include footer.html %}
+
+		<script>
+			// Disable right-click on images
+			document.addEventListener('contextmenu', function(e) {
+				if (e.target.tagName === 'IMG') {
+					e.preventDefault();
+				}
+			});
+
+			// Disable dragging images
+			document.addEventListener('dragstart', function(e) {
+				if (e.target.tagName === 'IMG') {
+					e.preventDefault();
+				}
+			});
+		</script>
+
+	</body>
 </html>

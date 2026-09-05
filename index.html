@@ -19,13 +19,26 @@ layout: default
     <div id="main" data-exif='{{ site.exif }}'>
         {% for image in site.static_files %}
         {% if image.path contains 'fulls' %}
-        <article class="thumb">
-            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-                <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-                     data-name="{{ image.name }}"/></a>
-            <!--<h2></h2>
-            <p></p>-->
-        </article>
+      {% assign category = '' %}
+
+{% if image.name contains 'Stories' %}
+    {% assign category = 'stories' %}
+{% elsif image.name contains 'The Moment' %}
+    {% assign category = 'moment' %}
+{% elsif image.name contains 'Wildlife & Animals' %}
+    {% assign category = 'animals' %}
+{% elsif image.name contains 'Nature' %}
+    {% assign category = 'nature' %}
+{% elsif image.name contains 'Food' %}
+    {% assign category = 'food' %}
+{% endif %}
+
+<article class="thumb portfolio-item {{ category }}">
+    <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
+        <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
+            data-name="{{ image.name }}" />
+    </a>
+</article>
         {% endif %}
         {% endfor %}
     </div>

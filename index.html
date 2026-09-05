@@ -1,165 +1,27 @@
 ---
 layout: default
+title: Kitty Lu
 ---
 
-<!-- Wrapper -->
-<div id="wrapper">
+<div id="main">
 
-    <!-- Header -->
-    <header id="header">
-        <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
-       <nav class="portfolio-nav">
-    <ul>
-        <li><a href="#" class="filter-link active" data-filter="all">HOME</a></li>
-        <li><a href="#" class="filter-link" data-filter="stories">STORIES</a></li>
-        <li><a href="#" class="filter-link" data-filter="moment">THE MOMENT</a></li>
-        <li><a href="#" class="filter-link" data-filter="animals">ANIMALS</a></li>
-        <li><a href="#" class="filter-link" data-filter="nature">NATURE</a></li>
-        <li><a href="#" class="filter-link" data-filter="food">FOOD</a></li>
-        <li><a href="#footer">ABOUT</a></li>
-    </ul>
-</nav>
-    </header>
+    <section class="home-intro">
 
-    <!-- Main -->
-    <div id="main" data-exif='{{ site.exif }}'>
-        {% for image in site.static_files %}
-        {% if image.path contains 'fulls' %}
-      {% assign category = '' %}
+        <h1>KITTY LU</h1>
 
-{% assign filename = image.name | downcase %}
+        <p>
+            Photography &nbsp;•&nbsp; Visual Design &nbsp;•&nbsp; Social Media
+        </p>
 
-{% if filename contains 'stories' %}
-    {% assign category = 'stories' %}
-{% elsif filename contains 'themoment' %}
-    {% assign category = 'moment' %}
-{% elsif filename contains 'wildlife' %}
-    {% assign category = 'animals' %}
-{% elsif filename contains 'nature' %}
-    {% assign category = 'nature' %}
-{% elsif filename contains 'food' %}
-    {% assign category = 'food' %}
-{% endif %}
-<article class="thumb portfolio-item {{ category }}">
-<a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-  <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-       data-name="{{ image.name }}" />
-</a>
-</article>
-        {% endif %}
-        {% endfor %}
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer" class="panel">
-        <div class="inner split">
-            <div>
-                <section>
-                    <h2>{{ site.footer.name }}</h2>
-                    <p>{{ site.footer.bio }}</p>
-                    <p>{{ site.footer.github }}</p>
-                </section>
-                <section>
-                    <h2>Follow me on ...</h2>
-                    <ul class="icons">
-                        {% if site.social_urls.facebook %}
-                            <li>
-                                <a href="{{ site.social_urls.facebook }}" class="icon brands fa-facebook">
-                                    <span class="label">Facebook</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if site.social_urls.twitter %}
-                            <li>
-                                <a href="{{ site.social_urls.twitter }}" class="icon brands fa-twitter">
-                                    <span class="label">Twitter</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if site.social_urls.instagram %}
-                            <li>
-                                <a href="{{ site.social_urls.instagram }}" class="icon brands fa-instagram">
-                                    <span class="label">Instagram</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if site.social_urls.dribbble %}
-                            <li>
-                                <a href="{{ site.social_urls.dribbble }}" class="icon brands fa-dribbble">
-                                    <span class="label">Dribbble</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if site.social_urls.github %}
-                            <li>
-                                <a href="{{ site.social_urls.github }}" class="icon brands fa-github">
-                                    <span class="label">GitHub</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if site.social_urls.linkedin %}
-                            <li>
-                                <a href="{{ site.social_urls.linkedin }}" class="icon brands fa-linkedin">
-                                    <span class="label">LinkedIn</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </section>
-                <p class="copyright">
-    &copy; {{ site.author }}. All rights reserved.
-</p>
-            </div>
-            <div>
-                <section>
-                    <h2>Get in touch</h2>
-                    <form method="post" action="#">
-                        <div class="fields">
-                            <div class="field half">
-                                <input type="text" name="name" id="name" placeholder="Name" />
-                            </div>
-                            <div class="field half">
-                                <input type="text" name="email" id="email" placeholder="Email" />
-                            </div>
-                            <div class="field">
-                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-                        <ul class="actions">
-                            <li><input type="submit" value="Send" class="primary" /></li>
-                            <li><input type="reset" value="Reset" /></li>
-                        </ul>
-                    </form>
-                </section>
-            </div>
+        <div class="home-links">
+            <a href="photography.html">VIEW PHOTOGRAPHY</a>
+            <a href="design.html">VIEW DESIGN</a>
         </div>
-    </footer>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".filter-link");
-    const items = document.querySelectorAll(".portfolio-item");
 
-    links.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
+        <p class="home-about">
+            <a href="#footer">ABOUT</a>
+        </p>
 
-            const filter = this.getAttribute("data-filter");
+    </section>
 
-            links.forEach(function (l) {
-                l.classList.remove("active");
-            });
-
-            this.classList.add("active");
-
-            items.forEach(function (item) {
-                if (filter === "all" || item.classList.contains(filter)) {
-                    item.style.display = "";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-    });
-});
-</script>
 </div>

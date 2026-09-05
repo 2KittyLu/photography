@@ -40,7 +40,7 @@ layout: default
 {% elsif filename contains 'food' %}
     {% assign category = 'food' %}
 {% endif %}
-
+<article class="thumb portfolio-item {{ category }}">
 <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
   <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
        data-name="{{ image.name }}" />

@@ -8,11 +8,17 @@ layout: default
     <!-- Header -->
     <header id="header">
         <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
-        <nav>
-            <ul>
-                <li><a href="#footer">About&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
-            </ul>
-        </nav>
+       <nav class="portfolio-nav">
+    <ul>
+        <li><a href="#" class="filter-link active" data-filter="all">HOME</a></li>
+        <li><a href="#" class="filter-link" data-filter="stories">STORIES</a></li>
+        <li><a href="#" class="filter-link" data-filter="moment">THE MOMENT</a></li>
+        <li><a href="#" class="filter-link" data-filter="animals">ANIMALS</a></li>
+        <li><a href="#" class="filter-link" data-filter="nature">NATURE</a></li>
+        <li><a href="#" class="filter-link" data-filter="food">FOOD</a></li>
+        <li><a href="#footer">ABOUT</a></li>
+    </ul>
+</nav>
     </header>
 
     <!-- Main -->
@@ -127,4 +133,32 @@ layout: default
             </div>
         </div>
     </footer>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".filter-link");
+    const items = document.querySelectorAll(".portfolio-item");
+
+    links.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const filter = this.getAttribute("data-filter");
+
+            links.forEach(function (l) {
+                l.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            items.forEach(function (item) {
+                if (filter === "all" || item.classList.contains(filter)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+});
+</script>
 </div>

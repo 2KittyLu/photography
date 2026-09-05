@@ -1,1 +1,35 @@
 .text-fg{color:#a0a0a1}#footer .presentify{margin:0 0 1.4em 0;display:grid;grid-template-columns:auto 1fr;column-gap:1rem;align-items:center}#footer .presentify .presentify-logo{display:flex;align-items:center;justify-content:center}#footer .presentify .presentify-logo a{display:flex;align-items:center;justify-content:center;border:0}#footer .presentify .presentify-logo img{width:72px;height:72px;display:block}#footer .presentify .presentify-text{margin:0}
+.portfolio-nav ul{
+display:flex;
+flex-wrap:wrap;
+gap:24px;
+align-items:center;
+margin:0;
+padding:0;
+list-style:none
+}
+
+.portfolio-nav li{
+margin:0
+}
+
+.portfolio-nav a{
+border:0;
+font-size:.8em;
+letter-spacing:.12em;
+text-transform:uppercase;
+text-decoration:none
+}
+
+.portfolio-nav .filter-link.active{
+color:#ffffff
+}
+
+@media screen and (max-width:736px){
+.portfolio-nav ul{
+gap:12px
+}
+.portfolio-nav a{
+font-size:.68em
+}
+}

@@ -149,8 +149,7 @@ title: Photography
         </div>
 
 
-        <div id="main"
-             data-exif='{{ site.exif }}'>
+<div id="photo-gallery">
 
 
             {% for image in site.static_files %}
@@ -1013,8 +1012,8 @@ document.addEventListener("DOMContentLoaded", function () {
  theme Poptrox ".image" link
 */
 
-#main .thumb .photo-open {
-
+#photo-gallery .thumb .photo-open {
+    
     display: block;
 
     width: 100%;
@@ -1028,8 +1027,8 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 
-#main .thumb .photo-open img {
-
+#photo-gallery .thumb .photo-open img {
+    
     display: block;
 
     width: 100%;

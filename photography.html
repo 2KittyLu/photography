@@ -1,25 +1,37 @@
 ---
 layout: default
+title: Photography
 ---
 
-<!-- Wrapper -->
 <div id="wrapper">
 
-    <!-- Header -->
-    <header id="header">
+    <!-- =====================================
+         PHOTOGRAPHY LANDING PAGE
+         ===================================== -->
 
-        <h1>
-            <a href="{{ site.baseurl }}/">
-                <strong>{{ site.header.title }}</strong>
-                {{ site.header.subtitle }}
-            </a>
-        </h1>
+    <section class="photography-hero">
 
-        <nav class="portfolio-nav">
+        <!-- TITLE -->
+        <div class="photography-title">
+
+            <div class="photography-small-title">
+                PHOTOGRAPHY BY
+            </div>
+
+            <h1>KITTY LU</h1>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="photography-menu">
+
             <ul>
 
                 <li>
-                    <a href="{{ site.baseurl }}/">HOME</a>
+                    <a href="{{ site.baseurl }}/">
+                        HOME
+                    </a>
                 </li>
 
                 <li>
@@ -63,39 +75,54 @@ layout: default
                 </li>
 
             </ul>
+
         </nav>
 
-    </header>
 
+        <!-- =====================================
+             MOVING PHOTO SHOW
+             ===================================== -->
 
-    <!-- =====================================
-         MOVING PHOTO SHOW
-         ===================================== -->
+        <div class="photo-show">
 
-    <section class="photo-show">
+            <div class="photo-show-track">
 
-        <div class="photo-show-track">
+                <div class="photo-show-group">
 
-            <div class="photo-show-group">
+                    {% for image in site.static_files %}
 
-                {% for image in site.static_files %}
+                        {% if image.path contains 'fulls' %}
 
-                    {% if image.path contains 'fulls' %}
+                            <div class="photo-show-item">
 
-                        <div class="photo-show-item">
+                                <img
+                                    src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
+                                    alt="Photography by Kitty Lu"
+                                    draggable="false">
 
-                            <img
-                                src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
-                                alt="Photography by Kitty Lu"
-                                draggable="false">
+                            </div>
 
-                        </div>
+                        {% endif %}
 
-                    {% endif %}
+                    {% endfor %}
 
-                {% endfor %}
+                </div>
 
             </div>
+
+        </div>
+
+
+        <!-- BOTTOM DECORATION -->
+        <div class="photography-bottom-detail">
+
+            <span></span>
+
+            <div>
+                MOMENTS · LIGHT · STORIES
+            </div>
+
+            <span></span>
 
         </div>
 
@@ -103,66 +130,93 @@ layout: default
 
 
     <!-- =====================================
-         ORIGINAL PHOTO GALLERY
+         CATEGORY ALBUM
+         Hidden when page first opens
          ===================================== -->
 
-<div id="main" data-exif='{{ site.exif }}' style="display:none;">
-        {% for image in site.static_files %}
-
-            {% if image.path contains 'fulls' %}
-
-                {% assign category = '' %}
-
-                {% assign filename = image.name | downcase %}
+    <section
+        id="gallery-section"
+        class="gallery-section"
+        style="display:none;">
 
 
-                {% if filename contains 'stories' %}
+        <div class="gallery-heading">
 
-                    {% assign category = 'stories' %}
+            <h2 id="gallery-title">
+                PHOTOGRAPHY
+            </h2>
 
-                {% elsif filename contains 'themoment' %}
+        </div>
 
-                    {% assign category = 'moment' %}
 
-                {% elsif filename contains 'wildlife' %}
+        <!-- IMPORTANT:
+             Keep #main / thumb / image
+             for original lightbox
+        -->
 
-                    {% assign category = 'animals' %}
+        <div id="main"
+             data-exif='{{ site.exif }}'>
 
-                {% elsif filename contains 'nature' %}
 
-                    {% assign category = 'nature' %}
+            {% for image in site.static_files %}
 
-                {% elsif filename contains 'food' %}
+                {% if image.path contains 'fulls' %}
 
-                    {% assign category = 'food' %}
+                    {% assign category = '' %}
+
+                    {% assign filename = image.name | downcase %}
+
+
+                    {% if filename contains 'stories' %}
+
+                        {% assign category = 'stories' %}
+
+                    {% elsif filename contains 'themoment' %}
+
+                        {% assign category = 'moment' %}
+
+                    {% elsif filename contains 'wildlife' %}
+
+                        {% assign category = 'animals' %}
+
+                    {% elsif filename contains 'nature' %}
+
+                        {% assign category = 'nature' %}
+
+                    {% elsif filename contains 'food' %}
+
+                        {% assign category = 'food' %}
+
+                    {% endif %}
+
+
+                    <article class="thumb portfolio-item {{ category }}">
+
+                        <a
+                            href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}"
+                            class="image">
+
+                            <img
+                                src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
+                                alt=""
+                                data-name="{{ image.name }}" />
+
+                        </a>
+
+                    </article>
 
                 {% endif %}
 
+            {% endfor %}
 
-                <article class="thumb portfolio-item {{ category }}">
 
-                    <a
-                        href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}"
-                        class="image">
+        </div>
 
-                        <img
-                            src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
-                            alt=""
-                            data-name="{{ image.name }}" />
-
-                    </a>
-
-                </article>
-
-            {% endif %}
-
-        {% endfor %}
-
-    </div>
+    </section>
 
 
     <!-- =====================================
-         PHOTO CATEGORY FILTER
+         CATEGORY FILTER
          ===================================== -->
 
     <script>
@@ -174,8 +228,27 @@ layout: default
 
         const items =
             document.querySelectorAll(".portfolio-item");
-        const gallery =
-    document.getElementById("main");
+
+        const gallerySection =
+            document.getElementById("gallery-section");
+
+        const galleryTitle =
+            document.getElementById("gallery-title");
+
+
+        const categoryNames = {
+
+            nature: "NATURE",
+
+            food: "FOOD",
+
+            animals: "ANIMALS",
+
+            moment: "THE MOMENT",
+
+            stories: "STORIES"
+
+        };
 
 
         links.forEach(function (link) {
@@ -183,11 +256,24 @@ layout: default
             link.addEventListener("click", function (e) {
 
                 e.preventDefault();
-                gallery.style.display = "";
+
 
                 const filter =
                     this.getAttribute("data-filter");
 
+
+                /* Show album */
+
+                gallerySection.style.display = "block";
+
+
+                /* Change album title */
+
+                galleryTitle.textContent =
+                    categoryNames[filter] || "PHOTOGRAPHY";
+
+
+                /* Active navigation */
 
                 links.forEach(function (l) {
 
@@ -199,22 +285,40 @@ layout: default
                 this.classList.add("active");
 
 
+                /* Filter photos */
+
                 items.forEach(function (item) {
 
                     if (
-                        filter === "all" ||
                         item.classList.contains(filter)
                     ) {
 
                         item.style.display = "";
 
-                    } else {
+                    }
+
+                    else {
 
                         item.style.display = "none";
 
                     }
 
                 });
+
+
+                /* Smooth scroll to album */
+
+                setTimeout(function () {
+
+                    gallerySection.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+                }, 80);
 
             });
 
@@ -226,7 +330,7 @@ layout: default
 
 
     <!-- =====================================
-         MOVING PHOTO SHOW SCRIPT
+         MOVING PHOTO SHOW
          ===================================== -->
 
     <script>
@@ -241,30 +345,32 @@ layout: default
 
 
         if (!track || !group) {
+
             return;
+
         }
 
 
         /*
-         Duplicate all photos once.
-         This allows the photo strip
-         to continue moving forever.
+         Duplicate photo group
+         for seamless infinite movement
         */
 
         const clone =
             group.cloneNode(true);
+
 
         clone.setAttribute(
             "aria-hidden",
             "true"
         );
 
+
         track.appendChild(clone);
 
 
         /*
-         Automatically calculate speed.
-         More photos = longer animation.
+         Automatically calculate speed
         */
 
         function setPhotoShowSpeed() {
@@ -272,11 +378,18 @@ layout: default
             const distance =
                 group.scrollWidth;
 
-            const pixelsPerSecond = 35;
+
+            /*
+             Smaller number = slower
+             Larger number = faster
+            */
+
+            const pixelsPerSecond = 28;
+
 
             const duration =
                 Math.max(
-                    45,
+                    60,
                     distance / pixelsPerSecond
                 );
 
@@ -305,30 +418,240 @@ layout: default
 
 
 <!-- =====================================
-     MOVING PHOTO SHOW STYLE
+     PHOTOGRAPHY PAGE STYLE
      ===================================== -->
 
 <style>
 
-/* Entire moving photo area */
+
+/* =====================================
+   HERO
+   ===================================== */
+
+.photography-hero {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #222527 0%,
+            #171a1c 48%,
+            #111315 100%
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 60px 0 55px;
+
+}
+
+
+/* =====================================
+   TITLE
+   ===================================== */
+
+.photography-title {
+
+    text-align: center;
+
+    margin-bottom: 36px;
+
+}
+
+
+.photography-small-title {
+
+    margin-bottom: 14px;
+
+    font-size: 0.78em;
+
+    font-weight: 300;
+
+    letter-spacing: 0.48em;
+
+    color: rgba(255,255,255,0.66);
+
+}
+
+
+.photography-title h1 {
+
+    margin: 0;
+
+    padding-left: 0.18em;
+
+    font-size: 4.6em;
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    letter-spacing: 0.18em;
+
+    color: rgba(255,255,255,0.96);
+
+}
+
+
+/* =====================================
+   MENU
+   ===================================== */
+
+.photography-menu {
+
+    width: 100%;
+
+    margin-bottom: 48px;
+
+}
+
+
+.photography-menu ul {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 52px;
+
+    margin: 0;
+
+    padding: 0 30px;
+
+    list-style: none;
+
+}
+
+
+.photography-menu li {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.photography-menu a {
+
+    border: 0;
+
+    text-decoration: none;
+
+    font-size: 0.72em;
+
+    font-weight: 300;
+
+    letter-spacing: 0.22em;
+
+    color: rgba(255,255,255,0.67);
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+.photography-menu a:hover {
+
+    color: #ffffff;
+
+}
+
+
+.photography-menu a.active {
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================
+   PHOTO SHOW
+   ===================================== */
 
 .photo-show {
+
+    position: relative;
 
     width: 100%;
 
     overflow: hidden;
 
-    background: #111;
-
-    padding: 18px 0;
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.08);
+    padding: 8px 0 18px;
 
 }
 
 
-/* Moving strip */
+/* Soft fade on both sides */
+
+.photo-show::before,
+.photo-show::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 85px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+.photo-show::before {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(18,20,22,1),
+            rgba(18,20,22,0)
+        );
+
+}
+
+
+.photo-show::after {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            rgba(18,20,22,1),
+            rgba(18,20,22,0)
+        );
+
+}
+
+
+/* Moving track */
 
 .photo-show-track {
 
@@ -338,14 +661,14 @@ layout: default
 
     animation:
         photo-show-scroll
-        var(--photo-show-duration, 90s)
+        var(--photo-show-duration, 120s)
         linear
         infinite;
 
 }
 
 
-/* Pause when mouse is over slideshow */
+/* Hover = pause */
 
 .photo-show:hover .photo-show-track {
 
@@ -354,7 +677,7 @@ layout: default
 }
 
 
-/* One complete group of photos */
+/* Complete group */
 
 .photo-show-group {
 
@@ -362,11 +685,11 @@ layout: default
 
     align-items: center;
 
-    gap: 12px;
-
-    padding-right: 12px;
-
     flex-shrink: 0;
+
+    gap: 14px;
+
+    padding-right: 14px;
 
 }
 
@@ -375,18 +698,26 @@ layout: default
 
 .photo-show-item {
 
+    position: relative;
+
     flex: 0 0 auto;
 
-    height: 230px;
+    height: 320px;
 
     overflow: hidden;
 
-    background: #181818;
+    background: #191b1d;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.32);
 
 }
 
 
-/* Photo */
+/* Actual photo */
 
 .photo-show-item img {
 
@@ -394,7 +725,7 @@ layout: default
 
     width: auto;
 
-    height: 230px;
+    height: 320px;
 
     object-fit: cover;
 
@@ -405,7 +736,7 @@ layout: default
 }
 
 
-/* Continuous left movement */
+/* Infinite movement */
 
 @keyframes photo-show-scroll {
 
@@ -425,37 +756,208 @@ layout: default
 
 
 /* =====================================
+   SMALL TEXT BELOW PHOTOS
+   ===================================== */
+
+.photography-bottom-detail {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 27px;
+
+    margin-top: 44px;
+
+    padding: 0 20px;
+
+    font-size: 0.60em;
+
+    font-weight: 300;
+
+    letter-spacing: 0.32em;
+
+    color: rgba(255,255,255,0.42);
+
+}
+
+
+.photography-bottom-detail span {
+
+    display: block;
+
+    width: 65px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,0.20);
+
+}
+
+
+/* =====================================
+   CATEGORY ALBUM
+   ===================================== */
+
+.gallery-section {
+
+    width: 100%;
+
+    background: #202326;
+
+    padding-top: 55px;
+
+}
+
+
+.gallery-heading {
+
+    text-align: center;
+
+    padding: 0 20px 38px;
+
+}
+
+
+.gallery-heading h2 {
+
+    margin: 0;
+
+    font-size: 1.25em;
+
+    font-weight: 300;
+
+    letter-spacing: 0.28em;
+
+    color: rgba(255,255,255,0.82);
+
+}
+
+
+/* =====================================
    MOBILE
    ===================================== */
 
 @media screen and (max-width: 736px) {
 
-    .photo-show {
 
-        padding: 12px 0;
+    .photography-hero {
+
+        min-height: 100vh;
+
+        justify-content: center;
+
+        padding: 45px 0;
+
+    }
+
+
+    .photography-title {
+
+        margin-bottom: 28px;
+
+    }
+
+
+    .photography-small-title {
+
+        font-size: 0.63em;
+
+        letter-spacing: 0.35em;
+
+    }
+
+
+    .photography-title h1 {
+
+        font-size: 2.7em;
+
+        letter-spacing: 0.15em;
+
+    }
+
+
+    .photography-menu {
+
+        margin-bottom: 32px;
+
+    }
+
+
+    .photography-menu ul {
+
+        gap: 18px 25px;
+
+        padding: 0 22px;
+
+    }
+
+
+    .photography-menu a {
+
+        font-size: 0.64em;
+
+        letter-spacing: 0.15em;
 
     }
 
 
     .photo-show-item {
 
-        height: 165px;
+        height: 220px;
 
     }
 
 
     .photo-show-item img {
 
-        height: 165px;
+        height: 220px;
 
     }
 
 
     .photo-show-group {
 
-        gap: 8px;
+        gap: 9px;
 
-        padding-right: 8px;
+        padding-right: 9px;
+
+    }
+
+
+    .photo-show::before,
+    .photo-show::after {
+
+        width: 35px;
+
+    }
+
+
+    .photography-bottom-detail {
+
+        margin-top: 32px;
+
+        gap: 14px;
+
+        font-size: 0.50em;
+
+        letter-spacing: 0.18em;
+
+    }
+
+
+    .photography-bottom-detail span {
+
+        width: 30px;
+
+    }
+
+
+    .gallery-section {
+
+        padding-top: 38px;
 
     }
 

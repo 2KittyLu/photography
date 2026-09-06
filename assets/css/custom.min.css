@@ -256,3 +256,34 @@ body:has(.home-intro) #main {
     width: 100%;
   }
 }
+/* Fix Visual Design layout after adding lightbox */
+.design-gallery .design-item {
+  width: calc((100% - 56px) / 3) !important;
+  margin: 0 !important;
+}
+
+.design-gallery .design-item > a {
+  width: 100% !important;
+  display: block;
+}
+
+.design-gallery .design-item img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+/* Tablet */
+@media screen and (max-width: 980px) {
+  .design-gallery .design-item {
+    width: calc((100% - 28px) / 2) !important;
+  }
+}
+
+/* Phone */
+@media screen and (max-width: 600px) {
+  .design-gallery .design-item {
+    width: 100% !important;
+  }
+}

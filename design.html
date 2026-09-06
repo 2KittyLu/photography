@@ -18,12 +18,14 @@ title: Visual Design
     {% assign ext = image.extname | downcase %}
     {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}
 
-      <a href="{{ site.baseurl }}{{ image.path }}" target="_blank">
-        <img
-          src="{{ site.baseurl }}{{ image.path }}"
-          alt="Visual Design by Kitty Lu"
-          loading="lazy">
-      </a>
+<article class="design-item thumb">
+  <a href="{{ site.baseurl }}{{ image.path }}" class="image">
+    <img
+      src="{{ site.baseurl }}{{ image.path }}"
+      alt="Visual Design by Kitty Lu"
+      loading="lazy">
+  </a>
+</article>
 
     {% endif %}
   {% endif %}

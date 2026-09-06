@@ -7,73 +7,456 @@ layout: default
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
-       <nav class="portfolio-nav">
-    <ul>
-<li><a href="{{ site.baseurl }}/">HOME</a></li>
-        <li><a href="#" class="filter-link" data-filter="nature">NATURE</a></li>
-        <li><a href="#" class="filter-link" data-filter="food">FOOD</a></li>
-        <li><a href="#" class="filter-link" data-filter="animals">ANIMALS</a></li>
-        <li><a href="#" class="filter-link" data-filter="moment">THE MOMENT</a></li>
-        <li><a href="#" class="filter-link" data-filter="stories">STORIES</a></li>
-       </nav>
-        </ul>
+
+        <h1>
+            <a href="{{ site.baseurl }}/">
+                <strong>{{ site.header.title }}</strong>
+                {{ site.header.subtitle }}
+            </a>
+        </h1>
+
+        <nav class="portfolio-nav">
+            <ul>
+
+                <li>
+                    <a href="{{ site.baseurl }}/">HOME</a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       class="filter-link"
+                       data-filter="nature">
+                        NATURE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       class="filter-link"
+                       data-filter="food">
+                        FOOD
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       class="filter-link"
+                       data-filter="animals">
+                        ANIMALS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       class="filter-link"
+                       data-filter="moment">
+                        THE MOMENT
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       class="filter-link"
+                       data-filter="stories">
+                        STORIES
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
     </header>
 
-    <!-- Main -->
+
+    <!-- =====================================
+         MOVING PHOTO SHOW
+         ===================================== -->
+
+    <section class="photo-show">
+
+        <div class="photo-show-track">
+
+            <div class="photo-show-group">
+
+                {% for image in site.static_files %}
+
+                    {% if image.path contains 'fulls' %}
+
+                        <div class="photo-show-item">
+
+                            <img
+                                src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
+                                alt="Photography by Kitty Lu"
+                                draggable="false">
+
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ORIGINAL PHOTO GALLERY
+         ===================================== -->
+
     <div id="main" data-exif='{{ site.exif }}'>
+
         {% for image in site.static_files %}
-        {% if image.path contains 'fulls' %}
-      {% assign category = '' %}
 
-{% assign filename = image.name | downcase %}
+            {% if image.path contains 'fulls' %}
 
-{% if filename contains 'stories' %}
-    {% assign category = 'stories' %}
-{% elsif filename contains 'themoment' %}
-    {% assign category = 'moment' %}
-{% elsif filename contains 'wildlife' %}
-    {% assign category = 'animals' %}
-{% elsif filename contains 'nature' %}
-    {% assign category = 'nature' %}
-{% elsif filename contains 'food' %}
-    {% assign category = 'food' %}
-{% endif %}
-<article class="thumb portfolio-item {{ category }}">
-<a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-  <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-       data-name="{{ image.name }}" />
-</a>
-</article>
-        {% endif %}
+                {% assign category = '' %}
+
+                {% assign filename = image.name | downcase %}
+
+
+                {% if filename contains 'stories' %}
+
+                    {% assign category = 'stories' %}
+
+                {% elsif filename contains 'themoment' %}
+
+                    {% assign category = 'moment' %}
+
+                {% elsif filename contains 'wildlife' %}
+
+                    {% assign category = 'animals' %}
+
+                {% elsif filename contains 'nature' %}
+
+                    {% assign category = 'nature' %}
+
+                {% elsif filename contains 'food' %}
+
+                    {% assign category = 'food' %}
+
+                {% endif %}
+
+
+                <article class="thumb portfolio-item {{ category }}">
+
+                    <a
+                        href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}"
+                        class="image">
+
+                        <img
+                            src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
+                            alt=""
+                            data-name="{{ image.name }}" />
+
+                    </a>
+
+                </article>
+
+            {% endif %}
+
         {% endfor %}
+
     </div>
+
+
+    <!-- =====================================
+         PHOTO CATEGORY FILTER
+         ===================================== -->
+
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".filter-link");
-    const items = document.querySelectorAll(".portfolio-item");
 
-    links.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
+    document.addEventListener("DOMContentLoaded", function () {
 
-            const filter = this.getAttribute("data-filter");
+        const links =
+            document.querySelectorAll(".filter-link");
 
-            links.forEach(function (l) {
-                l.classList.remove("active");
+        const items =
+            document.querySelectorAll(".portfolio-item");
+
+
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                const filter =
+                    this.getAttribute("data-filter");
+
+
+                links.forEach(function (l) {
+
+                    l.classList.remove("active");
+
+                });
+
+
+                this.classList.add("active");
+
+
+                items.forEach(function (item) {
+
+                    if (
+                        filter === "all" ||
+                        item.classList.contains(filter)
+                    ) {
+
+                        item.style.display = "";
+
+                    } else {
+
+                        item.style.display = "none";
+
+                    }
+
+                });
+
             });
 
-            this.classList.add("active");
-
-            items.forEach(function (item) {
-                if (filter === "all" || item.classList.contains(filter)) {
-                    item.style.display = "";
-                } else {
-                    item.style.display = "none";
-                }
-            });
         });
+
     });
-});
-</script>
+
+    </script>
+
+
+    <!-- =====================================
+         MOVING PHOTO SHOW SCRIPT
+         ===================================== -->
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const track =
+            document.querySelector(".photo-show-track");
+
+        const group =
+            document.querySelector(".photo-show-group");
+
+
+        if (!track || !group) {
+            return;
+        }
+
+
+        /*
+         Duplicate all photos once.
+         This allows the photo strip
+         to continue moving forever.
+        */
+
+        const clone =
+            group.cloneNode(true);
+
+        clone.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        track.appendChild(clone);
+
+
+        /*
+         Automatically calculate speed.
+         More photos = longer animation.
+        */
+
+        function setPhotoShowSpeed() {
+
+            const distance =
+                group.scrollWidth;
+
+            const pixelsPerSecond = 35;
+
+            const duration =
+                Math.max(
+                    45,
+                    distance / pixelsPerSecond
+                );
+
+
+            track.style.setProperty(
+                "--photo-show-duration",
+                duration + "s"
+            );
+
+        }
+
+
+        setPhotoShowSpeed();
+
+
+        window.addEventListener(
+            "resize",
+            setPhotoShowSpeed
+        );
+
+    });
+
+    </script>
+
 </div>
+
+
+<!-- =====================================
+     MOVING PHOTO SHOW STYLE
+     ===================================== -->
+
+<style>
+
+/* Entire moving photo area */
+
+.photo-show {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #111;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+
+}
+
+
+/* Moving strip */
+
+.photo-show-track {
+
+    display: flex;
+
+    width: max-content;
+
+    animation:
+        photo-show-scroll
+        var(--photo-show-duration, 90s)
+        linear
+        infinite;
+
+}
+
+
+/* Pause when mouse is over slideshow */
+
+.photo-show:hover .photo-show-track {
+
+    animation-play-state: paused;
+
+}
+
+
+/* One complete group of photos */
+
+.photo-show-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-right: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* Individual photo */
+
+.photo-show-item {
+
+    flex: 0 0 auto;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    background: #181818;
+
+}
+
+
+/* Photo */
+
+.photo-show-item img {
+
+    display: block;
+
+    width: auto;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+}
+
+
+/* Continuous left movement */
+
+@keyframes photo-show-scroll {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(-50%);
+
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+   ===================================== */
+
+@media screen and (max-width: 736px) {
+
+    .photo-show {
+
+        padding: 12px 0;
+
+    }
+
+
+    .photo-show-item {
+
+        height: 165px;
+
+    }
+
+
+    .photo-show-item img {
+
+        height: 165px;
+
+    }
+
+
+    .photo-show-group {
+
+        gap: 8px;
+
+        padding-right: 8px;
+
+    }
+
+}
+
+</style>

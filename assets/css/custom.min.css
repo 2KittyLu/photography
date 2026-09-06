@@ -222,7 +222,7 @@ body:has(.home-intro) #main {
 }
 
 .design-gallery a::after {
-  content: "© KITTY LU";
+  content: "© KITTY LU DESIGN";
   position: absolute;
   right: 12px;
   bottom: 12px;

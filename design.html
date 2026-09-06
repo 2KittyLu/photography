@@ -13,25 +13,23 @@ title: Visual Design
 
     <div class="design-gallery">
 
-        <a href="{{ site.baseurl }}/images/design/Design00001.jpg" target="_blank">
-            <img src="{{ site.baseurl }}/images/design/Design00001.jpg" alt="Visual Design">
-        </a>
+{% for image in site.static_files %}
+  {% if image.path contains '/images/design/' %}
+    {% assign ext = image.extname | downcase %}
+    {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}
 
-        <a href="{{ site.baseurl }}/images/design/Design00002.jpg" target="_blank">
-            <img src="{{ site.baseurl }}/images/design/Design00002.jpg" alt="Visual Design">
-        </a>
+      <a href="{{ site.baseurl }}{{ image.path }}" target="_blank">
+        <img
+          src="{{ site.baseurl }}{{ image.path }}"
+          alt="Visual Design by Kitty Lu"
+          loading="lazy">
+      </a>
 
-        <a href="{{ site.baseurl }}/images/design/Design00003.jpg" target="_blank">
-            <img src="{{ site.baseurl }}/images/design/Design00003.jpg" alt="Visual Design">
-        </a>
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
-        <a href="{{ site.baseurl }}/images/design/Design00004.jpg" target="_blank">
-            <img src="{{ site.baseurl }}/images/design/Design00004.jpg" alt="Visual Design">
-        </a>
-
-        <a href="{{ site.baseurl }}/images/design/Design00005.jpg" target="_blank">
-            <img src="{{ site.baseurl }}/images/design/Design00005.jpg" alt="Visual Design">
-        </a>
+</div>
 
     </div>
 

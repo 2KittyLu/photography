@@ -31,7 +31,7 @@ title: Kitty Lu
             <!-- Text -->
             <div class="home-hero-text">
 
-                <h1>KITTY LU</h1>
+                <h1>Kitty Lu</h1>
 
                 <p class="home-specialties">
                     Photography &nbsp;•&nbsp; Visual Design
@@ -43,15 +43,15 @@ title: Kitty Lu
                 <div class="home-links">
 
                     <a href="{{ site.baseurl }}/photography.html">
-                        <span>VIEW PHOTOGRAPHY</span>
+                        <span>PHOTOGRAPHY</span>
                     </a>
 
                     <a href="{{ site.baseurl }}/design.html">
-                        <span>VIEW DESIGN</span>
+                        <span>VISUAL DESIGN</span>
                     </a>
 
                     <a href="{{ site.baseurl }}/socialmedia.html">
-                        <span>VIEW SOCIAL MEDIA</span>
+                        <span>SOCIAL MEDIA</span>
                     </a>
 
                 </div>
@@ -302,23 +302,59 @@ title: Kitty Lu
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+
+/* =====================================
+   KITTY LU SIGNATURE FONT
+   ===================================== */
+
+.home-hero-text h1 {
+
+    font-family:
+        "Parisienne",
+        cursive;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+}
+
+
+/* =====================================
+   MOBILE ONLY
+   ===================================== */
+
 @media screen and (max-width: 736px) {
 
-    /* KITTY LU */
+    /* Kitty Lu */
 
     .home-hero-text h1 {
-        font-size: 3.6em !important;
+
+        font-size: 4.2em !important;
+
         line-height: 1.05;
-        letter-spacing: 0.06em;
+
+        letter-spacing: 0;
+
+        margin-bottom: 18px;
+
     }
 
 
     /* Photography • Visual Design / Social Media */
 
     .home-specialties {
-        font-size: 1.2em !important;
+
+        font-size: 1.3em !important;
+
         line-height: 1.7 !important;
+
+        letter-spacing: 0.04em;
+
         text-align: center;
+
     }
 
 
@@ -327,59 +363,62 @@ title: Kitty Lu
        ===================================== */
 
     .home-links {
+
         width: 100%;
+
     }
 
 
     .home-links a {
 
-        /*
-           This box becomes the reference
-           for perfectly centering the text.
-        */
         position: relative;
 
         display: block;
 
         width: 100%;
-        height: 86px;
+
+        height: 82px;
 
         margin: 14px 0;
+
         padding: 0;
 
-        border: 2px solid rgba(255,255,255,0.85);
+        border:
+            2px solid
+            rgba(255,255,255,0.85);
+
         border-radius: 3px;
 
         color: #ffffff !important;
 
-        font-size: 1.55em !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.04em;
+        font-size: 1.3em !important;
+
+        font-weight: 600 !important;
+
+        letter-spacing: 0.08em;
 
         text-decoration: none;
+
         box-sizing: border-box;
+
     }
 
-
-    /*
-       IMPORTANT:
-       Exact horizontal + vertical center.
-       The box does not move.
-       Only the text is fixed to its center.
-    */
 
     .home-links a span {
 
         position: absolute;
 
         top: 50%;
+
         left: 50%;
 
         width: 100%;
 
-        transform: translate(-50%, -50%);
+        transform:
+            translate(-50%, -50%);
 
         margin: 0;
+
         padding: 0 10px;
 
         line-height: 1.15;
@@ -389,20 +428,29 @@ title: Kitty Lu
         white-space: nowrap;
 
         box-sizing: border-box;
+
     }
 
 
     /* ABOUT */
 
     .home-about {
+
         text-align: center;
+
     }
 
+
     .home-about a {
+
         color: #ffffff !important;
-        font-size: 1.3em !important;
+
+        font-size: 1.2em !important;
+
         font-weight: 600 !important;
+
         letter-spacing: 0.08em;
+
     }
 
 
@@ -411,26 +459,36 @@ title: Kitty Lu
        ===================================== */
 
     #footer h2 {
+
         font-size: 1.6em !important;
+
         line-height: 1.3;
+
     }
 
 
     #footer p {
+
         font-size: 1.08em !important;
+
         line-height: 1.8;
+
     }
 
 
     #footer input,
     #footer textarea {
+
         font-size: 1.05em !important;
+
     }
 
 
     #footer input[type="submit"],
     #footer input[type="reset"] {
+
         font-size: 1em !important;
+
     }
 
 }

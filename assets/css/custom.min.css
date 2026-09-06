@@ -308,3 +308,209 @@ body:has(.home-intro) #main {
 /* =========================================
    NEW HOME HERO
    ========================================= */
+/* =========================================
+   NEW HOME HERO
+   ========================================= */
+
+.home-hero {
+  position: relative;
+  width: 100%;
+  min-height: 78vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Blurred background using the same photo */
+.home-hero-bg {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  bottom: -35px;
+  left: -35px;
+
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(20px);
+  transform: scale(1.08);
+
+  opacity: 0.60;
+}
+
+
+/* Dark layer over blurred photo */
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 24, 0.48);
+}
+
+
+/* Main content */
+.home-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, 92%);
+
+  display: grid;
+  grid-template-columns: 46% 54%;
+  align-items: center;
+
+  gap: 55px;
+  padding: 65px 0;
+}
+
+
+/* Clear photo on left */
+.home-hero-photo {
+  position: relative;
+  width: 100%;
+}
+
+.home-hero-photo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Text on right */
+.home-hero-text {
+  text-align: center;
+  padding: 20px;
+}
+
+.home-hero-text h1 {
+  margin: 0 0 22px 0;
+
+  font-size: 3.2em;
+  font-weight: 300;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* Photography • Visual Design • Social Media */
+.home-hero-text > p:first-of-type {
+  margin: 0 0 38px 0;
+
+  font-size: 1em;
+  letter-spacing: 0.08em;
+}
+
+
+/* Buttons */
+.home-hero-text .home-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.home-hero-text .home-links a {
+  display: inline-block;
+
+  padding: 13px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.50);
+
+  text-decoration: none;
+
+  font-size: 0.72em;
+  letter-spacing: 0.11em;
+
+  white-space: nowrap;
+}
+
+.home-hero-text .home-links a:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+
+/* About */
+.home-hero-text .home-about {
+  margin: 28px 0 0 0;
+}
+
+.home-hero-text .home-about a {
+  font-size: 0.75em;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media screen and (max-width: 800px) {
+
+  .home-hero {
+    min-height: auto;
+  }
+
+  .home-hero-content {
+    width: 88%;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding: 45px 0 55px;
+  }
+
+  .home-hero-photo {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto;
+  }
+
+  .home-hero-photo img {
+    max-height: 460px;
+  }
+
+  .home-hero-text {
+    padding: 0;
+  }
+
+  .home-hero-text h1 {
+    font-size: 2.3em;
+  }
+
+  .home-hero-text > p:first-of-type {
+    font-size: 0.9em;
+    line-height: 1.8;
+  }
+
+  .home-hero-text .home-links {
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 280px;
+
+    margin: 0 auto;
+  }
+
+  .home-hero-text .home-links a {
+    width: 100%;
+  }
+
+}

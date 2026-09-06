@@ -162,3 +162,57 @@ body:has(.home-intro) #main {
     align-items: center;
     text-align: center;
 }
+/* Visual Design Gallery */
+.design-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 40px;
+}
+
+.design-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.design-gallery a {
+  display: block;
+  text-decoration: none;
+}
+
+.design-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Tablet */
+@media screen and (max-width: 980px) {
+  .design-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone */
+@media screen and (max-width: 600px) {
+  .design-page {
+    padding: 40px 20px;
+  }
+
+  .design-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .design-gallery img {
+    max-height: 480px;
+  }
+}

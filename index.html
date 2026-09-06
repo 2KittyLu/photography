@@ -302,23 +302,31 @@ title: Kitty Lu
 
 <style>
 
-/*
-   Elegant font for the Kitty Lu name.
-   Cormorant Garamond Italic
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-    
 /* =====================================
-   KITTY LU NAME
+   KITTY LU FONT
+   SAME AS PHOTOGRAPHY
    ===================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
 .home-hero-text h1 {
-    font-family: "Sacramento", cursive;
+
+    font-family:
+        "Sacramento",
+        cursive;
+
     font-style: normal;
+
     font-weight: 400;
+
     letter-spacing: 0;
+
+    text-transform:
+        none !important;
+
 }
+
 
 
 /* =====================================
@@ -330,17 +338,30 @@ title: Kitty Lu
 
     /* Kitty Lu */
 
-.home-hero-text h1 {
-    font-family: "Sacramento", cursive;
-    font-style: normal;
-    font-size: 5.6em !important;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    margin-bottom: 20px;
-    white-space: nowrap;
-    text-transform: none !important;
-}
+    .home-hero-text h1 {
+
+        font-family:
+            "Sacramento",
+            cursive;
+
+        font-style: normal;
+
+        font-size: 5.8em !important;
+
+        font-weight: 400;
+
+        line-height: 1;
+
+        letter-spacing: 0;
+
+        margin-bottom: 20px;
+
+        white-space: nowrap;
+
+        text-transform:
+            none !important;
+
+    }
 
 
     /* Photography • Visual Design
@@ -358,29 +379,225 @@ title: Kitty Lu
 
 
     /* =====================================
-       HOME BUTTONS
+       DESKTOP GLASS BUTTONS
        ===================================== */
 
-    .home-links a {
+    .home-links {
 
-        font-size: 1.05em !important;
+        display: flex;
 
-        font-weight: 600 !important;
+        justify-content: center;
 
-        letter-spacing: 0.08em;
+        align-items: center;
+
+        gap: 16px;
+
+        flex-wrap: wrap;
+
+        width: 100%;
+
+        margin-top: 26px;
 
     }
 
 
-    /* ABOUT ME */
+    .home-links a {
 
-    .home-about a {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 165px;
+
+        min-height: 48px;
+
+        padding: 9px 24px;
+
+        box-sizing: border-box;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.18);
+
+        border-radius: 26px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.012)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.06),
+
+            inset 0 -1px 0
+            rgba(0,0,0,0.15),
+
+            0 5px 14px
+            rgba(0,0,0,0.13);
+
+        color:
+            rgba(255,255,255,0.86)
+            !important;
 
         font-size: 1.05em !important;
 
         font-weight: 600 !important;
 
+        line-height: 1;
+
         letter-spacing: 0.08em;
+
+        text-decoration: none;
+
+        transition:
+            color 0.22s ease,
+            border-color 0.22s ease,
+            background 0.22s ease,
+            box-shadow 0.22s ease,
+            transform 0.22s ease;
+
+    }
+
+
+    .home-links a:hover {
+
+        color:
+            #ffffff !important;
+
+        border-color:
+            rgba(255,255,255,0.34);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.075),
+                rgba(255,255,255,0.025)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.10),
+
+            0 8px 22px
+            rgba(0,0,0,0.18);
+
+        transform:
+            translateY(-1px);
+
+    }
+
+
+    .home-links a span {
+
+        position: static;
+
+        width: auto;
+
+        transform: none;
+
+        margin: 0;
+
+        padding: 0;
+
+        line-height: 1;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+    }
+
+
+    /* =====================================
+       ABOUT ME GLASS BUTTON
+       ===================================== */
+
+    .home-about {
+
+        text-align: center;
+
+        margin-top: 22px;
+
+    }
+
+
+    .home-about a {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-height: 42px;
+
+        padding: 8px 22px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.16);
+
+        border-radius: 24px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.035),
+                rgba(255,255,255,0.010)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.05),
+
+            0 4px 12px
+            rgba(0,0,0,0.10);
+
+        color:
+            rgba(255,255,255,0.80)
+            !important;
+
+        font-size: 1.02em !important;
+
+        font-weight: 600 !important;
+
+        letter-spacing: 0.08em;
+
+        text-decoration: none;
+
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease;
+
+    }
+
+
+    .home-about a:hover {
+
+        color:
+            rgba(128,235,218,0.98)
+            !important;
+
+        border-color:
+            rgba(105,220,204,0.48);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(80,210,190,0.07),
+                rgba(80,210,190,0.018)
+            );
+
+        box-shadow:
+            0 0 13px
+            rgba(50,200,180,0.06);
 
     }
 
@@ -417,8 +634,10 @@ title: Kitty Lu
 }
 
 
+
 /* =====================================
    MOBILE ONLY
+   SAME GLASS STYLE
    ===================================== */
 
 @media screen and (max-width: 736px) {
@@ -429,10 +648,10 @@ title: Kitty Lu
     .home-hero-text h1 {
 
         font-family:
-            "Cormorant Garamond",
-            serif;
+            "Sacramento",
+            cursive;
 
-        font-style: italic;
+        font-style: normal;
 
         font-size: 4em !important;
 
@@ -440,9 +659,14 @@ title: Kitty Lu
 
         line-height: 1;
 
-        letter-spacing: 0.01em;
+        letter-spacing: 0;
 
         margin-bottom: 18px;
+
+        white-space: nowrap;
+
+        text-transform:
+            none !important;
 
     }
 
@@ -464,12 +688,14 @@ title: Kitty Lu
 
 
     /* =====================================
-       HOME BUTTONS
+       MOBILE GLASS BUTTONS
        ===================================== */
 
     .home-links {
 
         width: 100%;
+
+        margin-top: 26px;
 
     }
 
@@ -478,57 +704,75 @@ title: Kitty Lu
 
         position: relative;
 
-        display: block;
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
 
         width: 100%;
 
-        height: 82px;
+        min-height: 54px;
+
+        height: auto;
 
         margin: 14px 0;
 
-        padding: 0;
+        padding: 11px 18px;
+
+        box-sizing: border-box;
 
         border:
-            2px solid
-            rgba(255,255,255,0.85);
+            1px solid
+            rgba(255,255,255,0.18);
 
-        border-radius: 3px;
+        border-radius: 28px;
 
-        color: #ffffff !important;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.012)
+            );
 
-        font-size: 1.3em !important;
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.06),
+
+            inset 0 -1px 0
+            rgba(0,0,0,0.15),
+
+            0 5px 14px
+            rgba(0,0,0,0.13);
+
+        color:
+            rgba(255,255,255,0.88)
+            !important;
+
+        font-size: 1.18em !important;
 
         font-weight: 600 !important;
 
-        letter-spacing: 0.08em;
+        line-height: 1.15;
+
+        letter-spacing: 0.07em;
 
         text-decoration: none;
-
-        box-sizing: border-box;
 
     }
 
 
-    /*
-       Keep button text exactly centered
-    */
-
     .home-links a span {
 
-        position: absolute;
+        position: static;
 
-        top: 50%;
+        width: auto;
 
-        left: 50%;
-
-        width: 100%;
-
-        transform:
-            translate(-50%, -50%);
+        transform: none;
 
         margin: 0;
 
-        padding: 0 10px;
+        padding: 0;
 
         line-height: 1.15;
 
@@ -541,24 +785,110 @@ title: Kitty Lu
     }
 
 
-    /* ABOUT ME */
+    .home-links a:hover {
+
+        color:
+            #ffffff !important;
+
+        border-color:
+            rgba(255,255,255,0.32);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.075),
+                rgba(255,255,255,0.025)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.09),
+
+            0 7px 17px
+            rgba(0,0,0,0.16);
+
+    }
+
+
+    /* =====================================
+       MOBILE ABOUT ME
+       ===================================== */
 
     .home-about {
 
         text-align: center;
+
+        margin-top: 20px;
 
     }
 
 
     .home-about a {
 
-        color: #ffffff !important;
+        display: inline-flex;
 
-        font-size: 1.2em !important;
+        align-items: center;
+
+        justify-content: center;
+
+        min-height: 44px;
+
+        padding: 9px 22px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.16);
+
+        border-radius: 24px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.035),
+                rgba(255,255,255,0.010)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.05),
+
+            0 4px 12px
+            rgba(0,0,0,0.10);
+
+        color:
+            rgba(255,255,255,0.82)
+            !important;
+
+        font-size: 1.12em !important;
 
         font-weight: 600 !important;
 
         letter-spacing: 0.08em;
+
+        text-decoration: none;
+
+    }
+
+
+    .home-about a:hover {
+
+        color:
+            rgba(128,235,218,0.98)
+            !important;
+
+        border-color:
+            rgba(105,220,204,0.48);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(80,210,190,0.07),
+                rgba(80,210,190,0.018)
+            );
+
+        box-shadow:
+            0 0 13px
+            rgba(50,200,180,0.06);
 
     }
 

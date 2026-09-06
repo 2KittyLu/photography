@@ -287,3 +287,21 @@ body:has(.home-intro) #main {
     width: 100% !important;
   }
 }
+/* Visual Design large lightbox watermark */
+.design-page-body .poptrox-popup .pic {
+  position: relative;
+}
+
+.design-page-body .poptrox-popup .pic::after {
+  content: "© KITTY LU DESIGN";
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.85);
+  pointer-events: none;
+}

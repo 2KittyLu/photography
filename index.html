@@ -13,11 +13,17 @@ title: Kitty Lu
             Photography &nbsp;•&nbsp; Visual Design &nbsp;•&nbsp; Social Media
         </p>
 
-<div class="home-links">
-    <a href="photography.html">VIEW PHOTOGRAPHY</a>
-    <a href="design.html">VIEW DESIGN</a>
-    <a href="socialmedia.html">VIEW SOCIAL MEDIA</a>
-</div>
+        <!-- Home Photo -->
+        <div class="home-hero-photo">
+            <img src="{{ site.baseurl }}/images/home/KittyLu.jpg"
+                 alt="Kitty Lu">
+        </div>
+
+        <div class="home-links">
+            <a href="photography.html">VIEW PHOTOGRAPHY</a>
+            <a href="design.html">VIEW DESIGN</a>
+            <a href="socialmedia.html">VIEW SOCIAL MEDIA</a>
+        </div>
 
         <p class="home-about">
             <a href="#footer">ABOUT</a>
@@ -26,9 +32,15 @@ title: Kitty Lu
     </section>
 
 </div>
+
+
+<!-- ABOUT -->
 <footer id="footer" class="panel">
+
     <div class="inner split">
+
         <div>
+
             <section>
                 <h2>{{ site.footer.name }}</h2>
                 <p>{{ site.footer.bio }}</p>
@@ -36,11 +48,15 @@ title: Kitty Lu
             </section>
 
             <section>
+
                 <h2>Follow me on ...</h2>
+
                 <ul class="icons">
+
                     {% if site.social_urls.facebook %}
                         <li>
-                            <a href="{{ site.social_urls.facebook }}" class="icon brands fa-facebook">
+                            <a href="{{ site.social_urls.facebook }}"
+                               class="icon brands fa-facebook">
                                 <span class="label">Facebook</span>
                             </a>
                         </li>
@@ -48,7 +64,8 @@ title: Kitty Lu
 
                     {% if site.social_urls.twitter %}
                         <li>
-                            <a href="{{ site.social_urls.twitter }}" class="icon brands fa-twitter">
+                            <a href="{{ site.social_urls.twitter }}"
+                               class="icon brands fa-twitter">
                                 <span class="label">Twitter</span>
                             </a>
                         </li>
@@ -56,7 +73,8 @@ title: Kitty Lu
 
                     {% if site.social_urls.instagram %}
                         <li>
-                            <a href="{{ site.social_urls.instagram }}" class="icon brands fa-instagram">
+                            <a href="{{ site.social_urls.instagram }}"
+                               class="icon brands fa-instagram">
                                 <span class="label">Instagram</span>
                             </a>
                         </li>
@@ -64,7 +82,8 @@ title: Kitty Lu
 
                     {% if site.social_urls.dribbble %}
                         <li>
-                            <a href="{{ site.social_urls.dribbble }}" class="icon brands fa-dribbble">
+                            <a href="{{ site.social_urls.dribbble }}"
+                               class="icon brands fa-dribbble">
                                 <span class="label">Dribbble</span>
                             </a>
                         </li>
@@ -72,7 +91,8 @@ title: Kitty Lu
 
                     {% if site.social_urls.github %}
                         <li>
-                            <a href="{{ site.social_urls.github }}" class="icon brands fa-github">
+                            <a href="{{ site.social_urls.github }}"
+                               class="icon brands fa-github">
                                 <span class="label">GitHub</span>
                             </a>
                         </li>
@@ -80,47 +100,76 @@ title: Kitty Lu
 
                     {% if site.social_urls.linkedin %}
                         <li>
-                            <a href="{{ site.social_urls.linkedin }}" class="icon brands fa-linkedin">
+                            <a href="{{ site.social_urls.linkedin }}"
+                               class="icon brands fa-linkedin">
                                 <span class="label">LinkedIn</span>
                             </a>
                         </li>
                     {% endif %}
+
                 </ul>
+
             </section>
 
             <p class="copyright">
                 &copy; {{ site.author }}. All rights reserved.
             </p>
+
         </div>
 
+
         <div>
+
             <section>
+
                 <h2>Get in touch</h2>
 
                 <form method="post" action="#">
+
                     <div class="fields">
 
                         <div class="field half">
-                            <input type="text" name="name" id="name" placeholder="Name" />
+                            <input type="text"
+                                   name="name"
+                                   id="name"
+                                   placeholder="Name" />
                         </div>
 
                         <div class="field half">
-                            <input type="text" name="email" id="email" placeholder="Email" />
+                            <input type="text"
+                                   name="email"
+                                   id="email"
+                                   placeholder="Email" />
                         </div>
 
                         <div class="field">
-                            <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                            <textarea name="message"
+                                      id="message"
+                                      rows="4"
+                                      placeholder="Message"></textarea>
                         </div>
 
                     </div>
 
                     <ul class="actions">
-                        <li><input type="submit" value="Send" class="primary" /></li>
-                        <li><input type="reset" value="Reset" /></li>
+                        <li>
+                            <input type="submit"
+                                   value="Send"
+                                   class="primary" />
+                        </li>
+
+                        <li>
+                            <input type="reset"
+                                   value="Reset" />
+                        </li>
                     </ul>
+
                 </form>
 
             </section>
+
         </div>
+
     </div>
+
 </footer>

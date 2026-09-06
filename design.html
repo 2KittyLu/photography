@@ -5,7 +5,15 @@ title: Visual Design
 
 <section class="design-page">
 
+    <!-- =====================================
+         DESIGN HEADER
+         ===================================== -->
+
     <div class="design-header">
+
+        <div class="design-small-title">
+            CREATIVE WORK
+        </div>
 
         <h1>VISUAL DESIGN</h1>
 
@@ -21,6 +29,10 @@ title: Visual Design
 
     </div>
 
+
+    <!-- =====================================
+         DESIGN GALLERY
+         ===================================== -->
 
     <div class="design-gallery">
 
@@ -87,50 +99,420 @@ title: Visual Design
 <style>
 
 /* =====================================
+   PAGE
+   ===================================== */
+
+.design-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 50% 14%,
+            #24282a 0%,
+            #1b1e20 34%,
+            #131517 75%,
+            #101214 100%
+        );
+
+    padding:
+        78px 48px
+        90px;
+
+}
+
+
+
+/* =====================================
+   DESIGN HEADER
+   ===================================== */
+
+.design-header {
+
+    max-width: 900px;
+
+    margin:
+        0 auto
+        68px;
+
+    text-align: center;
+
+}
+
+
+.design-small-title {
+
+    margin-bottom: 16px;
+
+    font-size: 0.80em;
+
+    font-weight: 400;
+
+    line-height: 1.3;
+
+    letter-spacing: 0.34em;
+
+    color:
+        rgba(255,255,255,0.52);
+
+}
+
+
+.design-header h1 {
+
+    margin:
+        0 0 22px;
+
+    font-size: 4em;
+
+    font-weight: 300;
+
+    line-height: 1.08;
+
+    letter-spacing: 0.13em;
+
+    color:
+        rgba(255,255,255,0.96);
+
+}
+
+
+.design-header p {
+
+    margin:
+        0 0 30px;
+
+    font-size: 1.12em;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.04em;
+
+    color:
+        rgba(255,255,255,0.62);
+
+}
+
+
+
+/* =====================================
+   BACK HOME
+   GLASS BUTTON
+   ===================================== */
+
+.design-back-home {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding:
+        8px 20px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.012)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.05),
+
+        inset 0 -1px 0
+        rgba(0,0,0,0.14),
+
+        0 5px 14px
+        rgba(0,0,0,0.12);
+
+    color:
+        rgba(255,255,255,0.76)
+        !important;
+
+    font-size: 0.88em;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.11em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.design-back-home:hover {
+
+    color:
+        rgba(128,235,218,0.98)
+        !important;
+
+    border-color:
+        rgba(105,220,204,0.45);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(80,210,190,0.07),
+            rgba(80,210,190,0.018)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(170,255,240,0.10),
+
+        0 0 13px
+        rgba(50,200,180,0.06);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+
+/* =====================================
+   DESIGN GALLERY
+   ===================================== */
+
+.design-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+}
+
+
+.design-item {
+
+    position: relative;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    box-shadow:
+        0 14px 30px
+        rgba(0,0,0,0.20);
+
+}
+
+
+.design-open {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    text-decoration: none;
+
+    cursor: zoom-in;
+
+}
+
+
+.design-open img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    margin: 0;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-user-drag: none;
+
+    -webkit-touch-callout: none;
+
+    transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
+
+}
+
+
+.design-open:hover img {
+
+    transform:
+        scale(1.018);
+
+    opacity: 0.94;
+
+}
+
+
+
+/* Subtle frame */
+
+.design-item::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.055);
+
+    border-radius: 6px;
+
+}
+
+
+
+/* =====================================
+   TABLET
+   ===================================== */
+
+@media screen and (max-width: 1100px) {
+
+    .design-gallery {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media screen and (max-width: 850px) {
+
+    .design-gallery {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+
+/* =====================================
    DESIGN LIGHTBOX
    ===================================== */
 
 #design-lightbox {
+
     display: none;
+
     position: fixed;
+
     inset: 0;
+
     z-index: 10000;
 
-    background: rgba(0,0,0,0.92);
+    background:
+        rgba(8,10,11,0.96);
 
     align-items: center;
+
     justify-content: center;
 
     padding: 40px;
+
 }
 
 
 #design-lightbox.open {
+
     display: flex;
+
 }
 
 
 #design-lightbox-image {
+
     position: relative;
 
     width: 90vw;
+
     height: 86vh;
 
     background-position: center;
+
     background-repeat: no-repeat;
+
     background-size: contain;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+
 }
 
 
 #design-lightbox-watermark {
+
     position: absolute;
 
     right: 24px;
+
     bottom: 20px;
 
-    color: rgba(255,255,255,0.82);
+    color:
+        rgba(255,255,255,0.82);
 
     font-size: 13px;
+
     letter-spacing: 1.5px;
 
     text-shadow:
@@ -138,111 +520,275 @@ title: Visual Design
         rgba(0,0,0,0.9);
 
     pointer-events: none;
+
 }
 
 
 #design-lightbox-close {
+
     position: absolute;
 
     top: 20px;
+
     right: 28px;
 
     z-index: 10001;
 
-    background: none;
+    padding: 0;
+
     border: 0;
+
+    background: none;
 
     color: white;
 
     font-size: 40px;
+
     line-height: 1;
 
     cursor: pointer;
+
 }
 
 
 
 /* =====================================
    MOBILE ONLY
-   SAME TYPOGRAPHY SCALE AS OTHER PAGES
    ===================================== */
 
 @media screen and (max-width: 736px) {
 
 
-    /* VISUAL DESIGN
-       Same main-title scale as Social Media */
+    .design-page {
+
+        padding:
+            52px 18px
+            68px;
+
+    }
+
+
+    .design-header {
+
+        margin-bottom: 50px;
+
+        text-align: center;
+
+    }
+
+
+    /* CREATIVE WORK */
+
+    .design-small-title {
+
+        margin-bottom: 15px;
+
+        font-size: 1em;
+
+        font-weight: 500;
+
+        line-height: 1.3;
+
+        letter-spacing: 0.18em;
+
+    }
+
+
+    /* VISUAL DESIGN */
 
     .design-header h1 {
-        font-size: 2.7em !important;
+
+        margin-bottom: 24px;
+
+        font-size: 2.7em
+            !important;
+
         font-weight: 400;
+
         line-height: 1.15;
 
         letter-spacing: 0.10em;
 
-        margin-bottom: 28px;
     }
 
 
-    /* Posters · Flyers · Social Media Graphics */
+    /* Subtitle */
 
     .design-header p {
-        font-size: 1.15em !important;
+
+        margin-bottom: 28px;
+
+        font-size: 1.15em
+            !important;
+
         font-weight: 400;
 
         line-height: 1.7;
+
         letter-spacing: 0.02em;
 
-        color: #c4c4c4;
-
-        margin-bottom: 28px;
+        color:
+            rgba(255,255,255,0.66);
 
         text-align: center;
+
     }
 
 
-    /* BACK HOME
-       Same size as navigation text on other pages */
+    /* =====================================
+       MOBILE GLASS BACK BUTTON
+       ===================================== */
 
     .design-back-home {
-        display: inline-block;
 
-        font-size: 1.15em !important;
-        font-weight: 600 !important;
+        display: inline-flex;
 
-        line-height: 1.3;
-        letter-spacing: 0.04em;
+        align-items: center;
 
-        padding: 8px 4px;
+        justify-content: center;
+
+        min-height: 44px;
+
+        padding:
+            9px 20px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.18);
+
+        border-radius: 24px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.012)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.06),
+
+            0 5px 14px
+            rgba(0,0,0,0.13);
+
+        color:
+            rgba(255,255,255,0.84)
+            !important;
+
+        font-size: 1.05em
+            !important;
+
+        font-weight: 600
+            !important;
+
+        line-height: 1;
+
+        letter-spacing: 0.06em;
+
+        text-decoration: none;
+
     }
 
 
-    /* Header spacing */
+    .design-back-home:hover {
 
-    .design-header {
-        margin-bottom: 55px;
-        text-align: center;
+        color:
+            rgba(128,235,218,0.98)
+            !important;
+
+        border-color:
+            rgba(105,220,204,0.48);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(80,210,190,0.075),
+                rgba(80,210,190,0.020)
+            );
+
+        box-shadow:
+            0 0 13px
+            rgba(50,200,180,0.06);
+
+        transform: none;
+
     }
 
 
-    /* Lightbox */
+    /* =====================================
+       MOBILE GALLERY
+       ===================================== */
+
+    .design-gallery {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        width: 100%;
+
+    }
+
+
+    .design-item {
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 8px 18px
+            rgba(0,0,0,0.18);
+
+    }
+
+
+    .design-item::after {
+
+        border-radius: 4px;
+
+    }
+
+
+    /* =====================================
+       MOBILE LIGHTBOX
+       ===================================== */
 
     #design-lightbox {
+
         padding: 20px;
+
     }
 
 
     #design-lightbox-image {
+
         width: 94vw;
+
         height: 82vh;
+
     }
 
 
     #design-lightbox-watermark {
+
         right: 12px;
+
         bottom: 12px;
 
         font-size: 10px;
+
+    }
+
+
+    #design-lightbox-close {
+
+        top: 15px;
+
+        right: 18px;
+
+        font-size: 38px;
+
     }
 
 }

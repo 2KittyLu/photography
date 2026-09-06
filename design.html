@@ -3,27 +3,36 @@ layout: default
 title: Visual Design
 ---
 
-<div id="main">
+<section class="design-page">
 
-    <section class="design-intro">
+    <div class="design-header">
         <h1>VISUAL DESIGN</h1>
-        <p>Selected posters, flyers, and social media graphics.</p>
-    </section>
+        <p>Posters · Flyers · Social Media Graphics</p>
+        <a href="{{ site.baseurl }}/">← BACK HOME</a>
+    </div>
 
-    <section class="design-gallery">
+    <div class="design-gallery">
 
-        {% for image in site.static_files %}
-            {% if image.path contains '/images/design/' %}
+        <a href="{{ site.baseurl }}/images/design/Design00001.jpg" target="_blank">
+            <img src="{{ site.baseurl }}/images/design/Design00001.jpg" alt="Visual Design">
+        </a>
 
-                <div class="design-item">
-                    <a href="{{ site.baseurl }}{{ image.path }}" target="_blank">
-                        <img src="{{ site.baseurl }}{{ image.path }}" alt="Visual Design by Kitty Lu">
-                    </a>
-                </div>
+        <a href="{{ site.baseurl }}/images/design/Design00002.jpg" target="_blank">
+            <img src="{{ site.baseurl }}/images/design/Design00002.jpg" alt="Visual Design">
+        </a>
 
-            {% endif %}
-        {% endfor %}
+        <a href="{{ site.baseurl }}/images/design/Design00003.jpg" target="_blank">
+            <img src="{{ site.baseurl }}/images/design/Design00003.jpg" alt="Visual Design">
+        </a>
 
-    </section>
+        <a href="{{ site.baseurl }}/images/design/Design00004.jpg" target="_blank">
+            <img src="{{ site.baseurl }}/images/design/Design00004.jpg" alt="Visual Design">
+        </a>
 
-</div>
+        <a href="{{ site.baseurl }}/images/design/Design00005.jpg" target="_blank">
+            <img src="{{ site.baseurl }}/images/design/Design00005.jpg" alt="Visual Design">
+        </a>
+
+    </div>
+
+</section>

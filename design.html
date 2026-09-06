@@ -5,10 +5,6 @@ title: Visual Design
 
 <section class="design-page">
 
-    <!-- =====================================
-         DESIGN HEADER
-         ===================================== -->
-
     <div class="design-header">
 
         <div class="design-small-title">
@@ -29,10 +25,6 @@ title: Visual Design
 
     </div>
 
-
-    <!-- =====================================
-         DESIGN GALLERY
-         ===================================== -->
 
     <div class="design-gallery">
 
@@ -99,42 +91,18 @@ title: Visual Design
 <style>
 
 /* =====================================
-   PAGE
-   ===================================== */
-
-.design-page {
-
-    width: 100%;
-    min-height: 100vh;
-
-    box-sizing: border-box;
-
-    background:
-        radial-gradient(
-            circle at 50% 14%,
-            #24282a 0%,
-            #1b1e20 34%,
-            #131517 75%,
-            #101214 100%
-        );
-
-    padding: 78px 42px 90px;
-
-}
-
-
-
-/* =====================================
-   DESIGN HEADER
+   VISUAL DESIGN HEADER
+   IMPORTANT:
+   DO NOT CHANGE ORIGINAL GALLERY SIZE
    ===================================== */
 
 .design-header {
 
-    max-width: 900px;
-
-    margin: 0 auto 68px;
-
     text-align: center;
+
+    padding-top: 72px;
+
+    margin-bottom: 60px;
 
 }
 
@@ -157,6 +125,8 @@ title: Visual Design
 }
 
 
+/* VISUAL DESIGN */
+
 .design-header h1 {
 
     margin: 0 0 22px;
@@ -174,6 +144,8 @@ title: Visual Design
 
 }
 
+
+/* Posters · Flyers · Social Media Graphics */
 
 .design-header p {
 
@@ -196,7 +168,7 @@ title: Visual Design
 
 /* =====================================
    BACK HOME
-   GLASS BUTTON
+   SAME GLASS STYLE AS PHOTOGRAPHY
    ===================================== */
 
 .design-back-home {
@@ -204,6 +176,7 @@ title: Visual Design
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     min-height: 42px;
@@ -290,86 +263,37 @@ title: Visual Design
 
 
 /* =====================================
-   DESIGN GALLERY
-   DESKTOP = 3 COLUMNS
+   IMPORTANT
+   GALLERY
    ===================================== */
 
-.design-gallery {
+/*
+   NO grid-template-columns here.
+   NO image width/height override here.
 
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 30px;
-
-    max-width: 1280px;
-
-    margin: 0 auto;
-
-}
-
-
-.design-item {
-
-    position: relative;
-
-    margin: 0;
-
-    padding: 0;
-
-    overflow: hidden;
-
-    border-radius: 6px;
-
-    background:
-        rgba(255,255,255,0.025);
-
-    box-shadow:
-        0 14px 30px
-        rgba(0,0,0,0.20);
-
-}
+   This intentionally keeps the original
+   desktop gallery sizing from your website.
+*/
 
 
 .design-open {
-
-    display: block;
-
-    width: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    text-decoration: none;
 
     cursor: zoom-in;
 
 }
 
 
+/*
+   Keep only the subtle hover effect.
+   This does NOT change the original
+   image dimensions.
+*/
+
 .design-open img {
 
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    margin: 0;
-
-    user-select: none;
-
-    -webkit-user-select: none;
-
-    -webkit-user-drag: none;
-
-    -webkit-touch-callout: none;
-
     transition:
-        transform 0.28s ease,
-        opacity 0.28s ease;
+        transform 0.25s ease,
+        opacity 0.25s ease;
 
 }
 
@@ -377,50 +301,9 @@ title: Visual Design
 .design-open:hover img {
 
     transform:
-        scale(1.018);
+        scale(1.015);
 
-    opacity: 0.94;
-
-}
-
-
-
-/* Subtle frame */
-
-.design-item::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.055);
-
-    border-radius: 6px;
-
-}
-
-
-
-/* =====================================
-   TABLET
-   ===================================== */
-
-@media screen and (max-width: 1100px) {
-
-    .design-gallery {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        max-width: 850px;
-
-    }
+    opacity: 0.95;
 
 }
 
@@ -441,7 +324,7 @@ title: Visual Design
     z-index: 10000;
 
     background:
-        rgba(8,10,11,0.96);
+        rgba(0,0,0,0.92);
 
     align-items: center;
 
@@ -518,9 +401,9 @@ title: Visual Design
 
     padding: 0;
 
-    border: 0;
-
     background: none;
+
+    border: 0;
 
     color: white;
 
@@ -541,16 +424,11 @@ title: Visual Design
 @media screen and (max-width: 736px) {
 
 
-    .design-page {
-
-        padding: 52px 18px 68px;
-
-    }
-
-
     .design-header {
 
-        margin-bottom: 50px;
+        padding-top: 52px;
+
+        margin-bottom: 55px;
 
         text-align: center;
 
@@ -578,8 +456,6 @@ title: Visual Design
 
     .design-header h1 {
 
-        margin-bottom: 24px;
-
         font-size: 2.7em
             !important;
 
@@ -589,14 +465,14 @@ title: Visual Design
 
         letter-spacing: 0.10em;
 
+        margin-bottom: 28px;
+
     }
 
 
-    /* Subtitle */
+    /* Posters · Flyers · Social Media Graphics */
 
     .design-header p {
-
-        margin-bottom: 28px;
 
         font-size: 1.15em
             !important;
@@ -608,7 +484,9 @@ title: Visual Design
         letter-spacing: 0.02em;
 
         color:
-            rgba(255,255,255,0.66);
+            #c4c4c4;
+
+        margin-bottom: 28px;
 
         text-align: center;
 
@@ -616,7 +494,8 @@ title: Visual Design
 
 
     /* =====================================
-       MOBILE GLASS BACK BUTTON
+       MOBILE BACK HOME
+       GLASS STYLE
        ===================================== */
 
     .design-back-home {
@@ -630,6 +509,8 @@ title: Visual Design
         min-height: 44px;
 
         padding: 9px 20px;
+
+        box-sizing: border-box;
 
         border:
             1px solid
@@ -691,43 +572,6 @@ title: Visual Design
             rgba(50,200,180,0.06);
 
         transform: none;
-
-    }
-
-
-    /* =====================================
-       MOBILE GALLERY
-       KEEP 2 COLUMNS
-       ===================================== */
-
-    .design-gallery {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 12px;
-
-        width: 100%;
-
-        max-width: none;
-
-    }
-
-
-    .design-item {
-
-        border-radius: 4px;
-
-        box-shadow:
-            0 8px 18px
-            rgba(0,0,0,0.18);
-
-    }
-
-
-    .design-item::after {
-
-        border-radius: 4px;
 
     }
 
@@ -864,7 +708,9 @@ title: Visual Design
                 e.key === 'Escape' &&
                 lightbox.classList.contains('open')
             ) {
+
                 closeDesignLightbox();
+
             }
 
         }
@@ -876,7 +722,9 @@ title: Visual Design
     lightbox.addEventListener(
         'contextmenu',
         function(e) {
+
             e.preventDefault();
+
         }
     );
 
@@ -886,7 +734,9 @@ title: Visual Design
     lightbox.addEventListener(
         'dragstart',
         function(e) {
+
             e.preventDefault();
+
         }
     );
 

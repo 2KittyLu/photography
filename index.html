@@ -1,4 +1,4 @@
-(---
+---
 layout: default
 title: Kitty Lu
 ---
@@ -16,46 +16,45 @@ title: Kitty Lu
         <!-- Dark Overlay -->
         <div class="home-hero-overlay"></div>
 
-
         <!-- Home Content -->
         <div class="home-hero-content">
 
             <!-- Photo -->
             <div class="home-hero-photo">
-                <img src="{{ site.baseurl }}/images/home/KittyLu.jpg"
-                     alt="Kitty Lu">
-            </div>
 
+                <img
+                    src="{{ site.baseurl }}/images/home/KittyLu.jpg"
+                    alt="Kitty Lu">
+
+            </div>
 
             <!-- Text -->
             <div class="home-hero-text">
 
                 <h1>KITTY LU</h1>
 
-<p>
-    Photography &nbsp;•&nbsp;
-    Visual Design
-    <br>
-    Social Media
-</p>
+                <p class="home-specialties">
+                    Photography &nbsp;•&nbsp; Visual Design
+                    <br>
+                    Social Media
+                </p>
 
-
+                <!-- Main Buttons -->
                 <div class="home-links">
 
-                    <a href="photography.html">
-                         VIEW PHOTOGRAPHY
+                    <a href="{{ site.baseurl }}/photography.html">
+                        <span>VIEW PHOTOGRAPHY</span>
                     </a>
 
-    <a href="design.html">
-    VIEW DESIGN
-</a>
+                    <a href="{{ site.baseurl }}/design.html">
+                        <span>VIEW DESIGN</span>
+                    </a>
 
-<a href="socialmedia.html">
-    VIEW SOCIAL MEDIA
-</a>
+                    <a href="{{ site.baseurl }}/socialmedia.html">
+                        <span>VIEW SOCIAL MEDIA</span>
+                    </a>
 
                 </div>
-
 
                 <p class="home-about">
                     <a href="#footer">ABOUT</a>
@@ -70,8 +69,10 @@ title: Kitty Lu
 </div>
 
 
+<!-- =====================================
+     ABOUT
+     ===================================== -->
 
-<!-- ABOUT -->
 <footer id="footer" class="panel">
 
     <div class="inner split">
@@ -81,7 +82,9 @@ title: Kitty Lu
 
             <section>
 
-                <h2>{{ site.footer.name }}</h2>
+                <h2>
+                    {{ site.footer.name }}
+                </h2>
 
                 <p>
                     {{ site.footer.bio }}
@@ -103,96 +106,102 @@ title: Kitty Lu
 
                     {% if site.social_urls.facebook %}
 
-                        <li>
-                            <a href="{{ site.social_urls.facebook }}"
-                               class="icon brands fa-facebook">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.facebook }}"
+                            class="icon brands fa-facebook">
 
-                                <span class="label">
-                                    Facebook
-                                </span>
+                            <span class="label">
+                                Facebook
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
 
                     {% if site.social_urls.twitter %}
 
-                        <li>
-                            <a href="{{ site.social_urls.twitter }}"
-                               class="icon brands fa-twitter">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.twitter }}"
+                            class="icon brands fa-twitter">
 
-                                <span class="label">
-                                    Twitter
-                                </span>
+                            <span class="label">
+                                Twitter
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
 
                     {% if site.social_urls.instagram %}
 
-                        <li>
-                            <a href="{{ site.social_urls.instagram }}"
-                               class="icon brands fa-instagram">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.instagram }}"
+                            class="icon brands fa-instagram">
 
-                                <span class="label">
-                                    Instagram
-                                </span>
+                            <span class="label">
+                                Instagram
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
 
                     {% if site.social_urls.dribbble %}
 
-                        <li>
-                            <a href="{{ site.social_urls.dribbble }}"
-                               class="icon brands fa-dribbble">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.dribbble }}"
+                            class="icon brands fa-dribbble">
 
-                                <span class="label">
-                                    Dribbble
-                                </span>
+                            <span class="label">
+                                Dribbble
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
 
                     {% if site.social_urls.github %}
 
-                        <li>
-                            <a href="{{ site.social_urls.github }}"
-                               class="icon brands fa-github">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.github }}"
+                            class="icon brands fa-github">
 
-                                <span class="label">
-                                    GitHub
-                                </span>
+                            <span class="label">
+                                GitHub
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
 
                     {% if site.social_urls.linkedin %}
 
-                        <li>
-                            <a href="{{ site.social_urls.linkedin }}"
-                               class="icon brands fa-linkedin">
+                    <li>
+                        <a
+                            href="{{ site.social_urls.linkedin }}"
+                            class="icon brands fa-linkedin">
 
-                                <span class="label">
-                                    LinkedIn
-                                </span>
+                            <span class="label">
+                                LinkedIn
+                            </span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
                     {% endif %}
 
@@ -208,7 +217,6 @@ title: Kitty Lu
         </div>
 
 
-
         <!-- CONTACT RIGHT SIDE -->
         <div>
 
@@ -216,41 +224,41 @@ title: Kitty Lu
 
                 <h2>Get in touch</h2>
 
-
                 <form method="post" action="#">
 
                     <div class="fields">
 
-
                         <div class="field half">
 
-                            <input type="text"
-                                   name="name"
-                                   id="name"
-                                   placeholder="Name" />
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="Name" />
 
                         </div>
 
 
                         <div class="field half">
 
-                            <input type="text"
-                                   name="email"
-                                   id="email"
-                                   placeholder="Email" />
+                            <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                placeholder="Email" />
 
                         </div>
 
 
                         <div class="field">
 
-                            <textarea name="message"
-                                      id="message"
-                                      rows="4"
-                                      placeholder="Message"></textarea>
+                            <textarea
+                                name="message"
+                                id="message"
+                                rows="4"
+                                placeholder="Message"></textarea>
 
                         </div>
-
 
                     </div>
 
@@ -259,22 +267,23 @@ title: Kitty Lu
 
                         <li>
 
-                            <input type="submit"
-                                   value="Send"
-                                   class="primary" />
+                            <input
+                                type="submit"
+                                value="Send"
+                                class="primary" />
 
                         </li>
 
 
                         <li>
 
-                            <input type="reset"
-                                   value="Reset" />
+                            <input
+                                type="reset"
+                                value="Reset" />
 
                         </li>
 
                     </ul>
-
 
                 </form>
 
@@ -285,8 +294,17 @@ title: Kitty Lu
     </div>
 
 </footer>
+
+
+<!-- =====================================
+     MOBILE ONLY
+     ===================================== -->
+
 <style>
+
 @media screen and (max-width: 736px) {
+
+    /* KITTY LU */
 
     .home-hero-text h1 {
         font-size: 3.6em !important;
@@ -294,53 +312,121 @@ title: Kitty Lu
         letter-spacing: 0.06em;
     }
 
-    .home-hero-text > p:not(.home-about) {
+
+    /* Photography • Visual Design / Social Media */
+
+    .home-specialties {
         font-size: 1.2em !important;
-        line-height: 1.7;
+        line-height: 1.7 !important;
+        text-align: center;
     }
 
-.home-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    width: 100%;
-    min-height: 82px;
-    padding: 5px 16px 0;
-    margin: 10px 0;
+    /* =====================================
+       HOME BUTTONS
+       ===================================== */
 
-    border: 2px solid rgba(255,255,255,0.85);
-    border-radius: 3px;
+    .home-links {
+        width: 100%;
+    }
 
-    color: #ffffff !important;
-    font-size: 1.55em !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.04em;
-    line-height: 1;
 
-    text-align: center;
-    text-decoration: none;
-    box-sizing: border-box;
-}
+    .home-links a {
+
+        /*
+           This box becomes the reference
+           for perfectly centering the text.
+        */
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        height: 86px;
+
+        margin: 14px 0;
+        padding: 0;
+
+        border: 2px solid rgba(255,255,255,0.85);
+        border-radius: 3px;
+
+        color: #ffffff !important;
+
+        font-size: 1.55em !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em;
+
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+
+    /*
+       IMPORTANT:
+       Exact horizontal + vertical center.
+       The box does not move.
+       Only the text is fixed to its center.
+    */
+
+    .home-links a span {
+
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        width: 100%;
+
+        transform: translate(-50%, -50%);
+
+        margin: 0;
+        padding: 0 10px;
+
+        line-height: 1.15;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        box-sizing: border-box;
+    }
+
+
+    /* ABOUT */
+
+    .home-about {
+        text-align: center;
+    }
 
     .home-about a {
-        font-size: 1.15em !important;
+        color: #ffffff !important;
+        font-size: 1.3em !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.08em;
     }
+
+
+    /* =====================================
+       ABOUT / FOOTER
+       ===================================== */
 
     #footer h2 {
         font-size: 1.6em !important;
         line-height: 1.3;
     }
 
+
     #footer p {
         font-size: 1.08em !important;
         line-height: 1.8;
     }
 
+
     #footer input,
     #footer textarea {
         font-size: 1.05em !important;
     }
+
 
     #footer input[type="submit"],
     #footer input[type="reset"] {
@@ -348,4 +434,5 @@ title: Kitty Lu
     }
 
 }
+
 </style>

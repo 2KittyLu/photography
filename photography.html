@@ -106,8 +106,7 @@ layout: default
          ORIGINAL PHOTO GALLERY
          ===================================== -->
 
-    <div id="main" data-exif='{{ site.exif }}'>
-
+<div id="main" data-exif='{{ site.exif }}' style="display:none;">
         {% for image in site.static_files %}
 
             {% if image.path contains 'fulls' %}
@@ -175,6 +174,8 @@ layout: default
 
         const items =
             document.querySelectorAll(".portfolio-item");
+        const gallery =
+    document.getElementById("main");
 
 
         links.forEach(function (link) {
@@ -182,6 +183,7 @@ layout: default
             link.addEventListener("click", function (e) {
 
                 e.preventDefault();
+                gallery.style.display = "";
 
                 const filter =
                     this.getAttribute("data-filter");

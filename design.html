@@ -1,13 +1,29 @@
 ---
 layout: default
-title: Design
+title: Visual Design
 ---
 
 <div id="main">
 
     <section class="design-intro">
-        <h1>DESIGN</h1>
-        <p>Selected works in graphic design, social media, and visual storytelling.</p>
+        <h1>VISUAL DESIGN</h1>
+        <p>Selected posters, flyers, and social media graphics.</p>
+    </section>
+
+    <section class="design-gallery">
+
+        {% for image in site.static_files %}
+            {% if image.path contains '/images/design/' %}
+
+                <div class="design-item">
+                    <a href="{{ site.baseurl }}{{ image.path }}" target="_blank">
+                        <img src="{{ site.baseurl }}{{ image.path }}" alt="Visual Design by Kitty Lu">
+                    </a>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+
     </section>
 
 </div>

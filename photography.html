@@ -1293,8 +1293,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 .photography-menu a {
-    font-size: 1.25em;
-    letter-spacing: 0.06em;
+    display: block;
+    min-width: 135px;
+    padding: 12px 14px;
+
+    border: 1px solid rgba(255,255,255,0.55) !important;
+    border-radius: 3px;
+
+    font-size: 1.2em !important;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+
+    text-align: center;
+    box-sizing: border-box;
+}
+    .photography-menu a.active {
+    border-color: rgba(255,255,255,0.95) !important;
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
 }
 
 

@@ -5,33 +5,69 @@ title: Kitty Lu
 
 <div id="main">
 
-    <section class="home-intro">
+    <!-- HOME HERO -->
+    <section class="home-hero">
 
-        <h1>KITTY LU</h1>
-
-        <p>
-            Photography &nbsp;•&nbsp; Visual Design &nbsp;•&nbsp; Social Media
-        </p>
-
-        <!-- Home Photo -->
-        <div class="home-hero-photo">
-            <img src="{{ site.baseurl }}/images/home/KittyLu.jpg"
-                 alt="Kitty Lu">
+        <!-- Blurred Background -->
+        <div class="home-hero-bg"
+             style="background-image: url('{{ site.baseurl }}/images/home/KittyLu.jpg');">
         </div>
 
-        <div class="home-links">
-            <a href="photography.html">VIEW PHOTOGRAPHY</a>
-            <a href="design.html">VIEW DESIGN</a>
-            <a href="socialmedia.html">VIEW SOCIAL MEDIA</a>
-        </div>
+        <!-- Dark Overlay -->
+        <div class="home-hero-overlay"></div>
 
-        <p class="home-about">
-            <a href="#footer">ABOUT</a>
-        </p>
+
+        <!-- Home Content -->
+        <div class="home-hero-content">
+
+            <!-- Photo -->
+            <div class="home-hero-photo">
+                <img src="{{ site.baseurl }}/images/home/KittyLu.jpg"
+                     alt="Kitty Lu">
+            </div>
+
+
+            <!-- Text -->
+            <div class="home-hero-text">
+
+                <h1>KITTY LU</h1>
+
+                <p>
+                    Photography &nbsp;•&nbsp;
+                    Visual Design &nbsp;•&nbsp;
+                    Social Media
+                </p>
+
+
+                <div class="home-links">
+
+                    <a href="photography.html">
+                        VIEW PHOTOGRAPHY
+                    </a>
+
+                    <a href="design.html">
+                        VIEW DESIGN
+                    </a>
+
+                    <a href="socialmedia.html">
+                        VIEW SOCIAL MEDIA
+                    </a>
+
+                </div>
+
+
+                <p class="home-about">
+                    <a href="#footer">ABOUT</a>
+                </p>
+
+            </div>
+
+        </div>
 
     </section>
 
 </div>
+
 
 
 <!-- ABOUT -->
@@ -39,14 +75,25 @@ title: Kitty Lu
 
     <div class="inner split">
 
+        <!-- ABOUT LEFT SIDE -->
         <div>
 
             <section>
+
                 <h2>{{ site.footer.name }}</h2>
-                <p>{{ site.footer.bio }}</p>
-                <p>{{ site.footer.github }}</p>
+
+                <p>
+                    {{ site.footer.bio }}
+                </p>
+
+                <p>
+                    {{ site.footer.github }}
+                </p>
+
             </section>
 
+
+            <!-- SOCIAL LINKS -->
             <section>
 
                 <h2>Follow me on ...</h2>
@@ -54,62 +101,104 @@ title: Kitty Lu
                 <ul class="icons">
 
                     {% if site.social_urls.facebook %}
+
                         <li>
                             <a href="{{ site.social_urls.facebook }}"
                                class="icon brands fa-facebook">
-                                <span class="label">Facebook</span>
+
+                                <span class="label">
+                                    Facebook
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
+
                     {% if site.social_urls.twitter %}
+
                         <li>
                             <a href="{{ site.social_urls.twitter }}"
                                class="icon brands fa-twitter">
-                                <span class="label">Twitter</span>
+
+                                <span class="label">
+                                    Twitter
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
+
                     {% if site.social_urls.instagram %}
+
                         <li>
                             <a href="{{ site.social_urls.instagram }}"
                                class="icon brands fa-instagram">
-                                <span class="label">Instagram</span>
+
+                                <span class="label">
+                                    Instagram
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
+
                     {% if site.social_urls.dribbble %}
+
                         <li>
                             <a href="{{ site.social_urls.dribbble }}"
                                class="icon brands fa-dribbble">
-                                <span class="label">Dribbble</span>
+
+                                <span class="label">
+                                    Dribbble
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
+
                     {% if site.social_urls.github %}
+
                         <li>
                             <a href="{{ site.social_urls.github }}"
                                class="icon brands fa-github">
-                                <span class="label">GitHub</span>
+
+                                <span class="label">
+                                    GitHub
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
+
                     {% if site.social_urls.linkedin %}
+
                         <li>
                             <a href="{{ site.social_urls.linkedin }}"
                                class="icon brands fa-linkedin">
-                                <span class="label">LinkedIn</span>
+
+                                <span class="label">
+                                    LinkedIn
+                                </span>
+
                             </a>
                         </li>
+
                     {% endif %}
 
                 </ul>
 
             </section>
+
 
             <p class="copyright">
                 &copy; {{ site.author }}. All rights reserved.
@@ -118,51 +207,73 @@ title: Kitty Lu
         </div>
 
 
+
+        <!-- CONTACT RIGHT SIDE -->
         <div>
 
             <section>
 
                 <h2>Get in touch</h2>
 
+
                 <form method="post" action="#">
 
                     <div class="fields">
 
+
                         <div class="field half">
+
                             <input type="text"
                                    name="name"
                                    id="name"
                                    placeholder="Name" />
+
                         </div>
 
+
                         <div class="field half">
+
                             <input type="text"
                                    name="email"
                                    id="email"
                                    placeholder="Email" />
+
                         </div>
 
+
                         <div class="field">
+
                             <textarea name="message"
                                       id="message"
                                       rows="4"
                                       placeholder="Message"></textarea>
+
                         </div>
+
 
                     </div>
 
+
                     <ul class="actions">
+
                         <li>
+
                             <input type="submit"
                                    value="Send"
                                    class="primary" />
+
                         </li>
 
+
                         <li>
+
                             <input type="reset"
                                    value="Reset" />
+
                         </li>
+
                     </ul>
+
 
                 </form>
 

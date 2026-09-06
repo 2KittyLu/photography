@@ -297,27 +297,35 @@ title: Kitty Lu
 
 
 <!-- =====================================
-     MOBILE ONLY
+     HOME PAGE STYLE
      ===================================== -->
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+/*
+   Elegant font for the Kitty Lu name.
+   This is the Cormorant Garamond Italic
+   preview you approved.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&display=swap');
 
 
 /* =====================================
-   KITTY LU SIGNATURE FONT
+   KITTY LU NAME
    ===================================== */
 
 .home-hero-text h1 {
 
     font-family:
-        "Parisienne",
-        cursive;
+        "Cormorant Garamond",
+        serif;
+
+    font-style: italic;
 
     font-weight: 400;
 
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
 
 }
 
@@ -328,22 +336,32 @@ title: Kitty Lu
 
 @media screen and (max-width: 736px) {
 
+
     /* Kitty Lu */
 
     .home-hero-text h1 {
 
-        font-size: 4.2em !important;
+        font-family:
+            "Cormorant Garamond",
+            serif;
 
-        line-height: 1.05;
+        font-style: italic;
 
-        letter-spacing: 0;
+        font-size: 4em !important;
+
+        font-weight: 400;
+
+        line-height: 1;
+
+        letter-spacing: 0.01em;
 
         margin-bottom: 18px;
 
     }
 
 
-    /* Photography • Visual Design / Social Media */
+    /* Photography • Visual Design
+       Social Media */
 
     .home-specialties {
 
@@ -403,6 +421,10 @@ title: Kitty Lu
 
     }
 
+
+    /*
+       Keep button text exactly centered
+    */
 
     .home-links a span {
 

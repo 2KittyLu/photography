@@ -9,15 +9,18 @@ google_analytics: ""
 title: "Photography by Kitty Lu"
 subtitle: "See the world through my eyes!"
 author: "Kitty Lu"
+
 header:
  title: "Photography"
  subtitle: "by Kitty Lu"
-footer:
-  name: "Hi, I'm Kitty Lu"
-  bio: "Bay Area photographer, videographer, and visual storyteller.
-I enjoy capturing meaningful stories, genuine moments, wildlife, nature, and the beauty found in everyday life.
 
-Through community events and humanitarian relief work, I’ve learned to look beyond the scene and capture the moments and details that tell a story."
+footer:
+  name: "About Me"
+  bio: "My background is in Electrical Engineering, and I previously worked as an ASIC IC Layout Engineer.
+
+I have always loved art and drawing since I was young. I also studied traditional Chinese Gongbi painting, a detailed brush-painting style that taught me to appreciate composition, color, and the beauty of small details.
+
+Over time, my creative interests grew into photography, visual design, video, and social media content creation. Through community events and humanitarian relief work, I’ve learned to look beyond the scene and capture genuine moments, meaningful stories, and the details that make each story unique."
   github: ""
   web_design: ""
 

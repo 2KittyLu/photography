@@ -234,3 +234,25 @@ body:has(.home-intro) #main {
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
   pointer-events: none;
 }
+.design-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+.design-gallery a {
+  width: calc((100% - 56px) / 3);
+}
+
+@media screen and (max-width: 980px) {
+  .design-gallery a {
+    width: calc((100% - 28px) / 2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .design-gallery a {
+    width: 100%;
+  }
+}

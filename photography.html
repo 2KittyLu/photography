@@ -129,9 +129,9 @@ title: Photography
     </section>
 
 
+
     <!-- =====================================
          CATEGORY ALBUM
-         Hidden when page first opens
          ===================================== -->
 
     <section
@@ -148,11 +148,6 @@ title: Photography
 
         </div>
 
-
-        <!-- IMPORTANT:
-             Keep #main / thumb / image
-             for original lightbox
-        -->
 
         <div id="main"
              data-exif='{{ site.exif }}'>
@@ -192,14 +187,21 @@ title: Photography
 
                     <article class="thumb portfolio-item {{ category }}">
 
+                        <!-- IMPORTANT:
+                             No class="image"
+                             This prevents old Poptrox lightbox
+                             from opening the wrong photo.
+                        -->
+
                         <a
                             href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}"
-                            class="image">
+                            class="photo-open">
 
                             <img
                                 src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
-                                alt=""
-                                data-name="{{ image.name }}" />
+                                alt="Photography by Kitty Lu"
+                                data-name="{{ image.name }}"
+                                draggable="false" />
 
                         </a>
 
@@ -215,211 +217,401 @@ title: Photography
     </section>
 
 
-    <!-- =====================================
-         CATEGORY FILTER
-         ===================================== -->
-
-    <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        const links =
-            document.querySelectorAll(".filter-link");
-
-        const items =
-            document.querySelectorAll(".portfolio-item");
-
-        const gallerySection =
-            document.getElementById("gallery-section");
-
-        const galleryTitle =
-            document.getElementById("gallery-title");
+</div>
 
 
-        const categoryNames = {
 
-            nature: "NATURE",
+<!-- =====================================
+     CUSTOM PHOTOGRAPHY LIGHTBOX
+     ===================================== -->
 
-            food: "FOOD",
+<div
+    id="photo-lightbox"
+    aria-hidden="true">
 
-            animals: "ANIMALS",
-
-            moment: "THE MOMENT",
-
-            stories: "STORIES"
-
-        };
-
-
-        links.forEach(function (link) {
-
-            link.addEventListener("click", function (e) {
-
-                e.preventDefault();
+    <button
+        id="photo-lightbox-close"
+        type="button"
+        aria-label="Close photo">
+        ×
+    </button>
 
 
-                const filter =
-                    this.getAttribute("data-filter");
+    <div id="photo-lightbox-image">
+
+        <div id="photo-lightbox-watermark">
+            © KITTY LU PHOTOGRAPHY
+        </div>
+
+    </div>
+
+</div>
 
 
-                /* Show album */
 
-                gallerySection.style.display = "block";
+<!-- =====================================
+     CATEGORY FILTER SCRIPT
+     ===================================== -->
 
+<script>
 
-                /* Change album title */
+document.addEventListener("DOMContentLoaded", function () {
 
-                galleryTitle.textContent =
-                    categoryNames[filter] || "PHOTOGRAPHY";
+    const links =
+        document.querySelectorAll(".filter-link");
 
+    const items =
+        document.querySelectorAll(".portfolio-item");
 
-                /* Active navigation */
+    const gallerySection =
+        document.getElementById("gallery-section");
 
-                links.forEach(function (l) {
-
-                    l.classList.remove("active");
-
-                });
-
-
-                this.classList.add("active");
-
-
-                /* Filter photos */
-
-                items.forEach(function (item) {
-
-                    if (
-                        item.classList.contains(filter)
-                    ) {
-
-                        item.style.display = "";
-
-                    }
-
-                    else {
-
-                        item.style.display = "none";
-
-                    }
-
-                });
+    const galleryTitle =
+        document.getElementById("gallery-title");
 
 
-                /* Smooth scroll to album */
+    const categoryNames = {
 
-                setTimeout(function () {
+        nature: "NATURE",
 
-                    gallerySection.scrollIntoView({
+        food: "FOOD",
 
-                        behavior: "smooth",
+        animals: "ANIMALS",
 
-                        block: "start"
+        moment: "THE MOMENT",
 
-                    });
+        stories: "STORIES"
 
-                }, 80);
+    };
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+
+            const filter =
+                this.getAttribute("data-filter");
+
+
+            /* Show gallery */
+
+            gallerySection.style.display =
+                "block";
+
+
+            /* Change title */
+
+            galleryTitle.textContent =
+                categoryNames[filter] ||
+                "PHOTOGRAPHY";
+
+
+            /* Active menu */
+
+            links.forEach(function (l) {
+
+                l.classList.remove("active");
 
             });
+
+
+            this.classList.add("active");
+
+
+            /* Show only selected category */
+
+            items.forEach(function (item) {
+
+                if (
+                    item.classList.contains(filter)
+                ) {
+
+                    item.style.display = "";
+
+                }
+
+                else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+
+            /* Smooth scroll */
+
+            setTimeout(function () {
+
+                gallerySection.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }, 80);
 
         });
 
     });
 
-    </script>
+});
+
+</script>
 
 
-    <!-- =====================================
-         MOVING PHOTO SHOW
-         ===================================== -->
 
-    <script>
+<!-- =====================================
+     MOVING PHOTO SHOW SCRIPT
+     ===================================== -->
 
-    document.addEventListener("DOMContentLoaded", function () {
+<script>
 
-        const track =
-            document.querySelector(".photo-show-track");
+document.addEventListener("DOMContentLoaded", function () {
 
-        const group =
-            document.querySelector(".photo-show-group");
+    const track =
+        document.querySelector(".photo-show-track");
 
-
-        if (!track || !group) {
-
-            return;
-
-        }
+    const group =
+        document.querySelector(".photo-show-group");
 
 
-        /*
-         Duplicate photo group
-         for seamless infinite movement
-        */
+    if (!track || !group) {
 
-        const clone =
-            group.cloneNode(true);
+        return;
+
+    }
 
 
-        clone.setAttribute(
+    const clone =
+        group.cloneNode(true);
+
+
+    clone.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    track.appendChild(clone);
+
+
+
+    function setPhotoShowSpeed() {
+
+        const distance =
+            group.scrollWidth;
+
+
+        const pixelsPerSecond =
+            28;
+
+
+        const duration =
+            Math.max(
+                60,
+                distance / pixelsPerSecond
+            );
+
+
+        track.style.setProperty(
+            "--photo-show-duration",
+            duration + "s"
+        );
+
+    }
+
+
+    setPhotoShowSpeed();
+
+
+    window.addEventListener(
+        "resize",
+        setPhotoShowSpeed
+    );
+
+});
+
+</script>
+
+
+
+<!-- =====================================
+     CUSTOM LIGHTBOX SCRIPT
+     ===================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const lightbox =
+        document.getElementById(
+            "photo-lightbox"
+        );
+
+    const lightboxImage =
+        document.getElementById(
+            "photo-lightbox-image"
+        );
+
+    const closeButton =
+        document.getElementById(
+            "photo-lightbox-close"
+        );
+
+
+    /*
+     Open exactly the photo clicked
+    */
+
+    document.querySelectorAll(
+        ".photo-open"
+    ).forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function (e) {
+
+                e.preventDefault();
+
+
+                const photoURL =
+                    this.getAttribute("href");
+
+
+                lightboxImage.style.backgroundImage =
+                    'url("' + photoURL + '")';
+
+
+                lightbox.classList.add(
+                    "open"
+                );
+
+
+                lightbox.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+    });
+
+
+    /*
+     Close lightbox
+    */
+
+    function closePhotoLightbox() {
+
+        lightbox.classList.remove(
+            "open"
+        );
+
+
+        lightbox.setAttribute(
             "aria-hidden",
             "true"
         );
 
 
-        track.appendChild(clone);
+        lightboxImage.style.backgroundImage =
+            "";
 
 
-        /*
-         Automatically calculate speed
-        */
+        document.body.style.overflow =
+            "";
 
-        function setPhotoShowSpeed() {
-
-            const distance =
-                group.scrollWidth;
+    }
 
 
-            /*
-             Smaller number = slower
-             Larger number = faster
-            */
-
-            const pixelsPerSecond = 28;
+    closeButton.addEventListener(
+        "click",
+        closePhotoLightbox
+    );
 
 
-            const duration =
-                Math.max(
-                    60,
-                    distance / pixelsPerSecond
-                );
+    /*
+     Click outside photo = close
+    */
 
+    lightbox.addEventListener(
+        "click",
+        function (e) {
 
-            track.style.setProperty(
-                "--photo-show-duration",
-                duration + "s"
-            );
+            if (e.target === lightbox) {
+
+                closePhotoLightbox();
+
+            }
 
         }
+    );
 
 
-        setPhotoShowSpeed();
+    /*
+     ESC = close
+    */
+
+    document.addEventListener(
+        "keydown",
+        function (e) {
+
+            if (
+                e.key === "Escape" &&
+                lightbox.classList.contains("open")
+            ) {
+
+                closePhotoLightbox();
+
+            }
+
+        }
+    );
 
 
-        window.addEventListener(
-            "resize",
-            setPhotoShowSpeed
-        );
+    /*
+     Disable right click
+    */
 
-    });
+    lightbox.addEventListener(
+        "contextmenu",
+        function (e) {
 
-    </script>
+            e.preventDefault();
 
-</div>
+        }
+    );
 
 
-<!-- =====================================
-     PHOTOGRAPHY PAGE STYLE
-     ===================================== -->
+    /*
+     Disable dragging
+    */
+
+    lightbox.addEventListener(
+        "dragstart",
+        function (e) {
+
+            e.preventDefault();
+
+        }
+    );
+
+});
+
+</script>
+
+
 
 <style>
 
@@ -457,6 +649,7 @@ title: Photography
     padding: 60px 0 55px;
 
 }
+
 
 
 /* =====================================
@@ -504,6 +697,7 @@ title: Photography
     color: rgba(255,255,255,0.96);
 
 }
+
 
 
 /* =====================================
@@ -563,20 +757,10 @@ title: Photography
 
     color: rgba(255,255,255,0.67);
 
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
-
 }
 
 
-.photography-menu a:hover {
-
-    color: #ffffff;
-
-}
-
-
+.photography-menu a:hover,
 .photography-menu a.active {
 
     color: #ffffff;
@@ -584,8 +768,9 @@ title: Photography
 }
 
 
+
 /* =====================================
-   PHOTO SHOW
+   MOVING PHOTO SHOW
    ===================================== */
 
 .photo-show {
@@ -600,8 +785,6 @@ title: Photography
 
 }
 
-
-/* Soft fade on both sides */
 
 .photo-show::before,
 .photo-show::after {
@@ -651,8 +834,6 @@ title: Photography
 }
 
 
-/* Moving track */
-
 .photo-show-track {
 
     display: flex;
@@ -668,16 +849,13 @@ title: Photography
 }
 
 
-/* Hover = pause */
-
-.photo-show:hover .photo-show-track {
+.photo-show:hover
+.photo-show-track {
 
     animation-play-state: paused;
 
 }
 
-
-/* Complete group */
 
 .photo-show-group {
 
@@ -694,11 +872,7 @@ title: Photography
 }
 
 
-/* Individual photo */
-
 .photo-show-item {
-
-    position: relative;
 
     flex: 0 0 auto;
 
@@ -717,8 +891,6 @@ title: Photography
 }
 
 
-/* Actual photo */
-
 .photo-show-item img {
 
     display: block;
@@ -735,8 +907,6 @@ title: Photography
 
 }
 
-
-/* Infinite movement */
 
 @keyframes photo-show-scroll {
 
@@ -755,8 +925,9 @@ title: Photography
 }
 
 
+
 /* =====================================
-   SMALL TEXT BELOW PHOTOS
+   BOTTOM DETAIL
    ===================================== */
 
 .photography-bottom-detail {
@@ -775,8 +946,6 @@ title: Photography
 
     font-size: 0.60em;
 
-    font-weight: 300;
-
     letter-spacing: 0.32em;
 
     color: rgba(255,255,255,0.42);
@@ -792,13 +961,15 @@ title: Photography
 
     height: 1px;
 
-    background: rgba(255,255,255,0.20);
+    background:
+        rgba(255,255,255,0.20);
 
 }
 
 
+
 /* =====================================
-   CATEGORY ALBUM
+   ALBUM
    ===================================== */
 
 .gallery-section {
@@ -836,6 +1007,149 @@ title: Photography
 }
 
 
+
+/*
+ Custom link replacing the old
+ theme Poptrox ".image" link
+*/
+
+#main .thumb .photo-open {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    overflow: hidden;
+
+}
+
+
+#main .thumb .photo-open img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+
+/* =====================================
+   CUSTOM PHOTO LIGHTBOX
+   ===================================== */
+
+#photo-lightbox {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20000;
+
+    background:
+        rgba(8,10,11,0.96);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 45px;
+
+}
+
+
+#photo-lightbox.open {
+
+    display: flex;
+
+}
+
+
+#photo-lightbox-image {
+
+    position: relative;
+
+    width: 92vw;
+
+    height: 88vh;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+}
+
+
+/* Watermark */
+
+#photo-lightbox-watermark {
+
+    position: absolute;
+
+    right: 22px;
+
+    bottom: 18px;
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    text-shadow:
+        0 1px 4px
+        rgba(0,0,0,0.85);
+
+    pointer-events: none;
+
+}
+
+
+/* Close X */
+
+#photo-lightbox-close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 28px;
+
+    z-index: 20001;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: #ffffff;
+
+    font-size: 42px;
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+
 /* =====================================
    MOBILE
    ===================================== */
@@ -846,8 +1160,6 @@ title: Photography
     .photography-hero {
 
         min-height: 100vh;
-
-        justify-content: center;
 
         padding: 45px 0;
 
@@ -958,6 +1270,44 @@ title: Photography
     .gallery-section {
 
         padding-top: 38px;
+
+    }
+
+
+    #photo-lightbox {
+
+        padding: 18px;
+
+    }
+
+
+    #photo-lightbox-image {
+
+        width: 96vw;
+
+        height: 82vh;
+
+    }
+
+
+    #photo-lightbox-watermark {
+
+        right: 10px;
+
+        bottom: 10px;
+
+        font-size: 9px;
+
+    }
+
+
+    #photo-lightbox-close {
+
+        top: 15px;
+
+        right: 18px;
+
+        font-size: 38px;
 
     }
 

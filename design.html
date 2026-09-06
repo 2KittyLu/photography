@@ -37,5 +37,18 @@ title: Visual Design
 
 </section>
 <script>
-  document.body.classList.add('design-page-body');
+document.body.classList.add('design-page-body');
+
+/* Protect Visual Design lightbox */
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.closest('.poptrox-popup')) {
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('dragstart', function(e) {
+  if (e.target.closest('.poptrox-popup')) {
+    e.preventDefault();
+  }
+});
 </script>

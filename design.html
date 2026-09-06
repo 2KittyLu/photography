@@ -105,7 +105,6 @@ title: Visual Design
 .design-page {
 
     width: 100%;
-
     min-height: 100vh;
 
     box-sizing: border-box;
@@ -119,9 +118,7 @@ title: Visual Design
             #101214 100%
         );
 
-    padding:
-        78px 48px
-        90px;
+    padding: 78px 42px 90px;
 
 }
 
@@ -135,9 +132,7 @@ title: Visual Design
 
     max-width: 900px;
 
-    margin:
-        0 auto
-        68px;
+    margin: 0 auto 68px;
 
     text-align: center;
 
@@ -164,8 +159,7 @@ title: Visual Design
 
 .design-header h1 {
 
-    margin:
-        0 0 22px;
+    margin: 0 0 22px;
 
     font-size: 4em;
 
@@ -183,8 +177,7 @@ title: Visual Design
 
 .design-header p {
 
-    margin:
-        0 0 30px;
+    margin: 0 0 30px;
 
     font-size: 1.12em;
 
@@ -211,13 +204,11 @@ title: Visual Design
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     min-height: 42px;
 
-    padding:
-        8px 20px;
+    padding: 8px 20px;
 
     box-sizing: border-box;
 
@@ -300,6 +291,7 @@ title: Visual Design
 
 /* =====================================
    DESIGN GALLERY
+   DESKTOP = 3 COLUMNS
    ===================================== */
 
 .design-gallery {
@@ -307,11 +299,11 @@ title: Visual Design
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(3, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 30px;
 
-    max-width: 1500px;
+    max-width: 1280px;
 
     margin: 0 auto;
 
@@ -424,19 +416,9 @@ title: Visual Design
     .design-gallery {
 
         grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-
-    }
-
-}
-
-
-@media screen and (max-width: 850px) {
-
-    .design-gallery {
-
-        grid-template-columns:
             repeat(2, minmax(0, 1fr));
+
+        max-width: 850px;
 
     }
 
@@ -561,9 +543,7 @@ title: Visual Design
 
     .design-page {
 
-        padding:
-            52px 18px
-            68px;
+        padding: 52px 18px 68px;
 
     }
 
@@ -649,8 +629,7 @@ title: Visual Design
 
         min-height: 44px;
 
-        padding:
-            9px 20px;
+        padding: 9px 20px;
 
         border:
             1px solid
@@ -718,6 +697,7 @@ title: Visual Design
 
     /* =====================================
        MOBILE GALLERY
+       KEEP 2 COLUMNS
        ===================================== */
 
     .design-gallery {
@@ -728,6 +708,8 @@ title: Visual Design
         gap: 12px;
 
         width: 100%;
+
+        max-width: none;
 
     }
 

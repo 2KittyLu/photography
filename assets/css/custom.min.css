@@ -354,10 +354,10 @@ body:has(.home-intro) #main {
   width: min(1180px, 92%);
 
   display: grid;
-  grid-template-columns: 46% 54%;
+  grid-template-columns: 38% 62%;
   align-items: center;
 
-  gap: 55px;
+  gap: 70px;
   padding: 65px 0;
 }
 
@@ -366,6 +366,8 @@ body:has(.home-intro) #main {
 .home-hero-photo {
   position: relative;
   width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .home-hero-photo img {

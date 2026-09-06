@@ -239,7 +239,6 @@ title: Photography
 
 <!-- =====================================
      CATEGORY FILTER SCRIPT
-     DO NOT CHANGE
      ===================================== -->
 
 <script>
@@ -280,20 +279,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.getAttribute("data-filter");
 
 
-            /* Show gallery */
-
             gallerySection.style.display =
                 "block";
 
-
-            /* Change title */
 
             galleryTitle.textContent =
                 categoryNames[filter] ||
                 "PHOTOGRAPHY";
 
-
-            /* Active menu */
 
             links.forEach(function (l) {
 
@@ -304,8 +297,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             this.classList.add("active");
 
-
-            /* Show only selected category */
 
             items.forEach(function (item) {
 
@@ -325,8 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-
-            /* Smooth scroll */
 
             setTimeout(function () {
 
@@ -351,7 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- =====================================
      MOVING PHOTO SHOW SCRIPT
-     DO NOT CHANGE
      ===================================== -->
 
 <script>
@@ -423,7 +411,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- =====================================
      CUSTOM LIGHTBOX SCRIPT
-     DO NOT CHANGE
      ===================================== -->
 
 <script>
@@ -642,7 +629,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =====================================
-   MENU
+   DESKTOP MENU
    ===================================== */
 
 .photography-menu {
@@ -691,8 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     min-height: 46px;
 
-    padding:
-        9px 24px;
+    padding: 9px 24px;
 
     box-sizing: border-box;
 
@@ -710,14 +696,9 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,0.055),
-
-        inset 0 -1px 0
-        rgba(0,0,0,0.15),
-
-        0 5px 15px
-        rgba(0,0,0,0.13);
+        inset 0 1px 0 rgba(255,255,255,0.055),
+        inset 0 -1px 0 rgba(0,0,0,0.15),
+        0 5px 15px rgba(0,0,0,0.13);
 
     text-decoration: none;
 
@@ -741,8 +722,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 }
 
-
-/* slightly wider only when the wording needs it */
 
 .photography-menu li:nth-child(1) a {
     min-width: 118px;
@@ -769,8 +748,6 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 
-/* Hover */
-
 .photography-menu a:hover {
 
     color: #ffffff;
@@ -786,19 +763,14 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,0.10),
-
-        0 8px 22px
-        rgba(0,0,0,0.18);
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        0 8px 22px rgba(0,0,0,0.18);
 
     transform:
         translateY(-1px);
 
 }
 
-
-/* Selected category */
 
 .photography-menu a.active {
 
@@ -816,11 +788,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     box-shadow:
-        inset 0 1px 0
-        rgba(170,255,240,0.12),
-
-        0 0 14px
-        rgba(50,200,180,0.07);
+        inset 0 1px 0 rgba(170,255,240,0.12),
+        0 0 14px rgba(50,200,180,0.07);
 
 }
 
@@ -1295,7 +1264,6 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 
-
 /* Watermark */
 
 #photo-lightbox-watermark {
@@ -1320,7 +1288,6 @@ document.addEventListener("DOMContentLoaded", function () {
     pointer-events: none;
 
 }
-
 
 
 /* Close X */
@@ -1357,7 +1324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* =====================================
    MOBILE ONLY
-   CONSISTENT TYPOGRAPHY
+   GLASS BUTTON VERSION
    ===================================== */
 
 @media screen and (max-width: 736px) {
@@ -1396,8 +1363,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Kitty Lu
-       same font as Index */
+    /* Kitty Lu */
 
     .photography-title h1 {
 
@@ -1425,25 +1391,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* NAVIGATION AREA */
+    /* =====================================
+       MOBILE NAVIGATION
+       TWO COLUMNS
+       ===================================== */
 
     .photography-menu {
 
         margin-bottom: 46px;
+
+        width: 100%;
 
     }
 
 
     .photography-menu ul {
 
-        gap: 18px 14px;
+        display: flex;
 
-        padding: 0 14px;
+        justify-content: center;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 14px;
+
+        padding: 0 16px;
+
+        margin: 0 auto;
+
+        max-width: 390px;
 
     }
 
 
-    /* HOME / NATURE / FOOD / ... */
+    .photography-menu li {
+
+        width:
+            calc(50% - 7px);
+
+        max-width: 175px;
+
+        margin: 0;
+
+        padding: 0;
+
+    }
+
+
+    /* =====================================
+       MOBILE GLASS BUTTON
+       ===================================== */
 
     .photography-menu a {
 
@@ -1453,52 +1452,121 @@ document.addEventListener("DOMContentLoaded", function () {
 
         justify-content: center;
 
-        min-width: 135px;
+        width: 100%;
+
+        min-width: 0 !important;
 
         min-height: 50px;
 
-        padding: 10px 14px;
+        padding: 10px 12px;
+
+        box-sizing: border-box;
 
         border:
             1px solid
-            rgba(255,255,255,0.55)
+            rgba(255,255,255,0.18)
             !important;
 
-        border-radius: 3px;
+        border-radius: 26px;
 
-        background: transparent;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.012)
+            );
 
-        box-shadow: none;
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.06),
 
-        font-size: 1.15em !important;
+            inset 0 -1px 0
+            rgba(0,0,0,0.15),
+
+            0 5px 14px
+            rgba(0,0,0,0.13);
+
+        color:
+            rgba(255,255,255,0.84);
+
+        font-size: 1.1em !important;
 
         font-weight: 600;
 
-        line-height: 1.2;
+        line-height: 1.15;
 
-        letter-spacing: 0.04em;
+        letter-spacing: 0.045em;
 
         text-align: center;
 
-        box-sizing: border-box;
+        text-decoration: none;
+
+        white-space: nowrap;
+
+        transform: none;
+
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease;
+
+    }
+
+
+    /* Touch / Hover */
+
+    .photography-menu a:hover {
+
+        color: #ffffff;
+
+        border-color:
+            rgba(255,255,255,0.32)
+            !important;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.075),
+                rgba(255,255,255,0.025)
+            );
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,0.09),
+
+            0 7px 17px
+            rgba(0,0,0,0.16);
 
         transform: none;
 
     }
 
 
+    /* Selected category */
+
     .photography-menu a.active {
 
+        color:
+            rgba(128,235,218,0.98);
+
         border-color:
-            rgba(255,255,255,0.95)
+            rgba(105,220,204,0.52)
             !important;
 
         background:
-            rgba(255,255,255,0.12);
+            linear-gradient(
+                180deg,
+                rgba(80,210,190,0.085),
+                rgba(80,210,190,0.022)
+            );
 
-        color: #ffffff;
+        box-shadow:
+            inset 0 1px 0
+            rgba(170,255,240,0.10),
 
-        box-shadow: none;
+            0 0 13px
+            rgba(50,200,180,0.07);
 
     }
 

@@ -6,44 +6,71 @@ title: Visual Design
 <section class="design-page">
 
     <div class="design-header">
+
         <h1>VISUAL DESIGN</h1>
-        <p>Posters · Flyers · Social Media Graphics</p>
-        <a href="{{ site.baseurl }}/">← BACK HOME</a>
+
+        <p>
+            Posters · Flyers · Social Media Graphics
+        </p>
+
+        <a
+            class="design-back-home"
+            href="{{ site.baseurl }}/">
+            ← BACK HOME
+        </a>
+
     </div>
+
 
     <div class="design-gallery">
 
-    {% for image in site.static_files %}
-      {% if image.path contains '/images/design/' %}
-        {% assign ext = image.extname | downcase %}
-        {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}
+        {% for image in site.static_files %}
 
-        <article class="design-item">
-          <a href="{{ site.baseurl }}{{ image.path }}" class="design-open">
-            <img
-              src="{{ site.baseurl }}{{ image.path }}"
-              alt="Visual Design by Kitty Lu"
-              loading="lazy">
-          </a>
-        </article>
+            {% if image.path contains '/images/design/' %}
 
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+                {% assign ext = image.extname | downcase %}
+
+                {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}
+
+                    <article class="design-item">
+
+                        <a
+                            href="{{ site.baseurl }}{{ image.path }}"
+                            class="design-open">
+
+                            <img
+                                src="{{ site.baseurl }}{{ image.path }}"
+                                alt="Visual Design by Kitty Lu"
+                                loading="lazy">
+
+                        </a>
+
+                    </article>
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %}
 
     </div>
 
 </section>
 
 
-<!-- Visual Design Lightbox -->
-<div id="design-lightbox" aria-hidden="true">
+<!-- =====================================
+     VISUAL DESIGN LIGHTBOX
+     ===================================== -->
+
+<div
+    id="design-lightbox"
+    aria-hidden="true">
 
     <button
-      id="design-lightbox-close"
-      type="button"
-      aria-label="Close">
-      ×
+        id="design-lightbox-close"
+        type="button"
+        aria-label="Close">
+        ×
     </button>
 
     <div id="design-lightbox-image">
@@ -59,71 +86,165 @@ title: Visual Design
 
 <style>
 
-/* Design-only lightbox */
+/* =====================================
+   DESIGN LIGHTBOX
+   ===================================== */
+
 #design-lightbox {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 10000;
+
     background: rgba(0,0,0,0.92);
+
     align-items: center;
     justify-content: center;
+
     padding: 40px;
 }
+
 
 #design-lightbox.open {
     display: flex;
 }
 
+
 #design-lightbox-image {
     position: relative;
+
     width: 90vw;
     height: 86vh;
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+
 #design-lightbox-watermark {
     position: absolute;
+
     right: 24px;
     bottom: 20px;
+
     color: rgba(255,255,255,0.82);
+
     font-size: 13px;
     letter-spacing: 1.5px;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.9);
+
+    text-shadow:
+        0 1px 5px
+        rgba(0,0,0,0.9);
+
     pointer-events: none;
 }
 
+
 #design-lightbox-close {
     position: absolute;
+
     top: 20px;
     right: 28px;
+
     z-index: 10001;
+
     background: none;
     border: 0;
+
     color: white;
+
     font-size: 40px;
     line-height: 1;
+
     cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+
+
+/* =====================================
+   MOBILE ONLY
+   SAME TYPOGRAPHY SCALE AS OTHER PAGES
+   ===================================== */
+
+@media screen and (max-width: 736px) {
+
+
+    /* VISUAL DESIGN
+       Same main-title scale as Social Media */
+
+    .design-header h1 {
+        font-size: 2.7em !important;
+        font-weight: 400;
+        line-height: 1.15;
+
+        letter-spacing: 0.10em;
+
+        margin-bottom: 28px;
+    }
+
+
+    /* Posters · Flyers · Social Media Graphics */
+
+    .design-header p {
+        font-size: 1.15em !important;
+        font-weight: 400;
+
+        line-height: 1.7;
+        letter-spacing: 0.02em;
+
+        color: #c4c4c4;
+
+        margin-bottom: 28px;
+
+        text-align: center;
+    }
+
+
+    /* BACK HOME
+       Same size as navigation text on other pages */
+
+    .design-back-home {
+        display: inline-block;
+
+        font-size: 1.15em !important;
+        font-weight: 600 !important;
+
+        line-height: 1.3;
+        letter-spacing: 0.04em;
+
+        padding: 8px 4px;
+    }
+
+
+    /* Header spacing */
+
+    .design-header {
+        margin-bottom: 55px;
+        text-align: center;
+    }
+
+
+    /* Lightbox */
 
     #design-lightbox {
         padding: 20px;
     }
+
 
     #design-lightbox-image {
         width: 94vw;
         height: 82vh;
     }
 
+
     #design-lightbox-watermark {
         right: 12px;
         bottom: 12px;
+
         font-size: 10px;
     }
+
 }
 
 </style>
@@ -144,6 +265,7 @@ title: Visual Design
 
 
     /* Open Design poster */
+
     document.querySelectorAll('.design-open').forEach(function(link) {
 
         link.addEventListener('click', function(e) {
@@ -154,9 +276,14 @@ title: Visual Design
                 'url("' + link.href + '")';
 
             lightbox.classList.add('open');
-            lightbox.setAttribute('aria-hidden', 'false');
 
-            document.body.style.overflow = 'hidden';
+            lightbox.setAttribute(
+                'aria-hidden',
+                'false'
+            );
+
+            document.body.style.overflow =
+                'hidden';
 
         });
 
@@ -164,14 +291,21 @@ title: Visual Design
 
 
     /* Close */
+
     function closeDesignLightbox() {
 
         lightbox.classList.remove('open');
-        lightbox.setAttribute('aria-hidden', 'true');
 
-        lightboxImage.style.backgroundImage = '';
+        lightbox.setAttribute(
+            'aria-hidden',
+            'true'
+        );
 
-        document.body.style.overflow = '';
+        lightboxImage.style.backgroundImage =
+            '';
+
+        document.body.style.overflow =
+            '';
 
     }
 
@@ -182,37 +316,51 @@ title: Visual Design
     );
 
 
-    lightbox.addEventListener('click', function(e) {
+    lightbox.addEventListener(
+        'click',
+        function(e) {
 
-        if (e.target === lightbox) {
-            closeDesignLightbox();
+            if (e.target === lightbox) {
+                closeDesignLightbox();
+            }
+
         }
+    );
 
-    });
 
+    document.addEventListener(
+        'keydown',
+        function(e) {
 
-    document.addEventListener('keydown', function(e) {
+            if (
+                e.key === 'Escape' &&
+                lightbox.classList.contains('open')
+            ) {
+                closeDesignLightbox();
+            }
 
-        if (
-            e.key === 'Escape' &&
-            lightbox.classList.contains('open')
-        ) {
-            closeDesignLightbox();
         }
-
-    });
+    );
 
 
     /* Disable right click inside Design lightbox */
-    lightbox.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+
+    lightbox.addEventListener(
+        'contextmenu',
+        function(e) {
+            e.preventDefault();
+        }
+    );
 
 
     /* Disable dragging */
-    lightbox.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-    });
+
+    lightbox.addEventListener(
+        'dragstart',
+        function(e) {
+            e.preventDefault();
+        }
+    );
 
 })();
 

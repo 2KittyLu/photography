@@ -9,7 +9,7 @@ title: Photography
          PHOTOGRAPHY LANDING PAGE
          ===================================== -->
 
-    <section class="photography-hero">
+    <section id="photography-top" class="photography-hero">
 
         <!-- TITLE -->
         <div class="photography-title">
@@ -140,6 +140,12 @@ title: Photography
         style="display:none;">
 
         <div class="gallery-heading">
+
+            <!-- BACK TO PHOTOGRAPHY -->
+            <a href="#photography-top"
+               class="back-to-photography">
+                ← PHOTOGRAPHY
+            </a>
 
             <h2 id="gallery-title">
                 PHOTOGRAPHY
@@ -1004,7 +1010,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     background: #202326;
 
-    padding-top: 55px;
+    padding-top: 45px;
 
 }
 
@@ -1014,6 +1020,96 @@ document.addEventListener("DOMContentLoaded", function () {
     text-align: center;
 
     padding: 0 20px 38px;
+
+}
+
+
+
+/* =====================================
+   BACK TO PHOTOGRAPHY BUTTON
+   ===================================== */
+
+.back-to-photography {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    padding: 7px 18px;
+
+    margin-bottom: 22px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.012)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.05),
+
+        0 4px 12px
+        rgba(0,0,0,0.10);
+
+    color:
+        rgba(255,255,255,0.72)
+        !important;
+
+    font-size: 0.78em;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.12em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-to-photography:hover {
+
+    color:
+        rgba(128,235,218,0.98)
+        !important;
+
+    border-color:
+        rgba(105,220,204,0.45);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(80,210,190,0.07),
+            rgba(80,210,190,0.018)
+        );
+
+    box-shadow:
+        0 0 13px
+        rgba(50,200,180,0.06);
+
+    transform:
+        translateY(-1px);
 
 }
 
@@ -1264,6 +1360,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 
+
 /* Watermark */
 
 #photo-lightbox-watermark {
@@ -1288,6 +1385,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pointer-events: none;
 
 }
+
 
 
 /* Close X */
@@ -1440,9 +1538,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =====================================
-       MOBILE GLASS BUTTON
-       ===================================== */
+    /* MOBILE GLASS BUTTON */
 
     .photography-menu a {
 
@@ -1514,8 +1610,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Touch / Hover */
-
     .photography-menu a:hover {
 
         color: #ffffff;
@@ -1542,8 +1636,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* Selected category */
 
     .photography-menu a.active {
 
@@ -1630,14 +1722,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ALBUM HEADING */
+    /* =====================================
+       MOBILE ALBUM
+       ===================================== */
 
     .gallery-section {
 
-        padding-top: 38px;
+        padding-top: 32px;
 
     }
 
+
+    /* RETURN BUTTON */
+
+    .back-to-photography {
+
+        min-height: 42px;
+
+        padding: 8px 18px;
+
+        margin-bottom: 20px;
+
+        border-radius: 23px;
+
+        font-size: 0.95em;
+
+        font-weight: 600;
+
+        letter-spacing: 0.07em;
+
+    }
+
+
+    /* ALBUM HEADING */
 
     .gallery-heading h2 {
 
